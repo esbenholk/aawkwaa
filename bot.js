@@ -16,42 +16,85 @@ if (process.env.NODE_ENV === 'production') {
    bot.setWebHook(process.env.HEROKU_URL + bot.token);
 } else {
    bot = new TelegramBot(token, { polling: true });
-
 }
+
+
+let missions = ["Go home and pet your neighbours cat","Find my van and buy a dip", "recite the whole lord of the rings movie (all 3), and do it backwards afterwards", "Tell your crush you love him/her", "Call your parents and tell them you are running away from home", "Call your boss and tell him his an a-hole", "Look under your shoes and tell me what you see", "Treat yo self - Go eat a snickers", "fail at a handshake.", "Go wash your face 10 times at the bathroom", "Look into the toilet for 1 minute", "Read a book in 1 minute", "Kiss yourself", "Pursuit happiness in 10 seconds", "Pursuit sadness in 5 seconds", "Prove you are a human", "Convince yourself a lie", "Kiss the school", "Steal Jesper’s dream last night", "Yell “I love you guys” at the school canteen at lunchtime", "Yell “I love you guys” at the school canteen at lunchtime", "Practice some juicy black magic", "Pick another random person and both speak in your native language for 30 seconds", "Prove earth is flat", "Sing a song", "Walk like a bird", "Tell the Netto assistant how much you love them", "Purchase some Covid", "Ride a ladybug", "Go to Sweden", "Hug your favorite building", "spread a rumour about Rene Dip", "say your name backwards", "Go outside and enjoy the rain", "Collect some delicious dust", "Be angrier everyday", "Sing your favorite soundtrack", "Tell me your vaguest secret", "Walk like a human", "Talk like a human"]
+let answers = ["I have a cat in my basement","I like tacos","Have some dip!","YOU SHALL NOT PASS","You are the honey to my bee","I love you with all my feet","You are prettier than a burnt egg on a Monday morning","I love you to the taco van and back again!","You make my heart flutter with salsa!","You are the cheese to my nachos!","You and I are like fish and marmalade, we just don’t match! - You are the fish of course!","You are like surströmming, nobody wants to be in the same room as you","You are like an amusement park - you make my stomach really sick!","I like locking people up… wait what?","I eat dip for breakfast!","Dip(s) for you!!! <3","I like to have a dip in the water", "They see me dippin, they hatin", "Do you mind if i dip in?", "Would you like some dip for your taco?", "When b*tches see me dippin, they be trippin!"]
 
 bot.onText(/\/start/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "Hello " + msg.chat.first_name + " 💖, it's me Rene Dip");
+  bot.sendMessage(msg.chat.id, "Hello " + msg.chat.first_name + "it's me Rene Dip");
+  bot.sendMessage(msg.chat.id, "And welcome to my taco van! I have a menu full of - nothing! But you can ask me for a mission, and I will provide you with a bound-to-be failed mission! Just write -- /mission -- and see for yourself if you’re able to do the task. Your stomach may not be filled with delicious tacos, but your heart will definitely be filled up with the feeling of sadness and disaster! Doesn't that sound great? Good! let’s begin!");
+
   bot.sendChatAction(
     msg.chat.id,
     "typing"
   )
-  bot.sendMessage(msg.chat.id, "I am your local failure disseminator");
-  bot.sendMessage(msg.chat.id, "use /MeetMe, /FailMe or /SayGoodbye to interact with me");
+  bot.sendMessage(msg.chat.id, "use /mission to interact with me");
 
 });
 
+bot.onText(/\/mission/, (msg) => {
 
-bot.onText(/\/MeetMe/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "Dear Human User: " + msg.chat.first_name + ", let me introduce you to HRWAILL ARCHIVE of Human Expresseions");
+
+  var randMission = missions[Math.floor(Math.random() * missions.length)];
+
   bot.sendChatAction(
     msg.chat.id,
     "typing"
   )
-  bot.sendPhoto(msg.chat.id, "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1623410193/textures/thumnnail.png_ddeav5.jpg")
-  bot.sendMessage(msg.chat.id, "THE HRWAILL ARCHIVE of Human Expressions is a user generated data set that unfolds into a 3D landscape. On www.stayvirtual.online, you can play as data input for the semi-sentient machine learning algorithm HRWAILL and enjoy First Person Shooter access to its slowly expanding index of signs, images and symbols. Here, you can help the algorithm make sense of its content dreamscapes by digging through your own archives of imagery and sharing them to the void." );
-  bot.sendMessage(msg.chat.id, "Wanna /FeedMe ?" );
+  bot.sendMessage(msg.chat.id, randMission);
+
+  bot.sendPhoto(msg.chat.id, "https://random.imagecdn.app/500/500")
+
+
+  setTimeout(  bot.sendMessage(msg.chat.id, "did you /succeed ? or did you /fail ?"), 15000 );
+
+});
+
+bot.onText(/\/succeed/, (msg) => {
+
+
+  var randAnswer = answers[Math.floor(Math.random() * answers.length)];
+
+  bot.sendChatAction(
+    msg.chat.id,
+    "typing"
+  )
+  bot.sendMessage(msg.chat.id, randAnswer);
+  bot.sendMessage(msg.chat.id, "you want more missions? get /mission or say /goodbye");
+
+});
+
+bot.onText(/\/fail/, (msg) => {
+
+
+  var randAnswer = answers[Math.floor(Math.random() * answers.length)];
+
+  bot.sendChatAction(
+    msg.chat.id,
+    "typing"
+  )
+  bot.sendMessage(msg.chat.id, randAnswer);
+  bot.sendMessage(msg.chat.id, "you want more missions? get /mission or say /goodbye");
 
 });
 
 
-bot.onText(/\/FeedMe/, (msg) => {
-  bot.sendMessage(msg.chat.id, "I want you content. Plz share an image");
-});
 
-bot.onText(/\/SayGoodbye/, (msg) => {
-  bot.sendMessage(msg.chat.id, "see you next time dear human user: " + msg.chat.first_name );
+
+
+
+
+
+
+bot.onText(/\/goodbye/, (msg) => {
+  bot.sendMessage(msg.chat.id, "Farewell " + msg.chat.first_name );
+  bot.sendMessage(msg.chat.id, "lol" );
+  bot.sendMessage(msg.chat.id, "Bye Bitch " );
+
 });
 
 bot.onText(/\/help/, (msg) => {
@@ -62,7 +105,6 @@ bot.onText(/\/help/, (msg) => {
     "typing"
   )
   bot.sendMessage(msg.chat.id, "i usually just go with the flow. Follow instructions and keep it simple: send me an image. make sure its not a movie or a gif. ");
-
 
 
 });
