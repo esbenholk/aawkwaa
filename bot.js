@@ -24,8 +24,9 @@ let answers = ["I have a cat in my basement","I like tacos","Have some dip!","YO
 
 bot.onText(/\/start/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "Hello " + msg.chat.first_name + "it's me Rene Dip");
-  bot.sendMessage(msg.chat.id, "And welcome to my taco van! I have a menu full of - nothing! But you can ask me for a mission, and I will provide you with a bound-to-be failed mission! Just write -- /mission -- and see for yourself if you’re able to do the task. Your stomach may not be filled with delicious tacos, but your heart will definitely be filled up with the feeling of sadness and disaster! Doesn't that sound great? Good! let’s begin!");
+  bot.sendMessage(msg.chat.id, "Hello " + msg.chat.first_name + ", it's me Rene Dip");
+
+  bot.sendMessage(msg.chat.id, "Welcome to my taco van! I have a menu full of - nothing! But you can ask me for a mission, and I will provide you with a bound-to-be failed mission! Just write -- /mission -- and see for yourself if you’re able to do the task. Your stomach may not be filled with delicious tacos, but your heart will definitely be filled up with the feeling of sadness and disaster! Doesn't that sound great? Good! let’s begin!");
 
   bot.sendChatAction(
     msg.chat.id,
@@ -36,55 +37,75 @@ bot.onText(/\/start/, (msg) => {
 });
 
 bot.onText(/\/mission/, (msg) => {
-
-
-
   var randMission = missions[Math.floor(Math.random() * missions.length)];
+
+  bot.sendMessage(msg.chat.id, randMission);
+
 
   bot.sendChatAction(
     msg.chat.id,
     "typing"
   )
-  bot.sendMessage(msg.chat.id, randMission);
 
-  bot.sendPhoto(msg.chat.id, "https://random.imagecdn.app/500/500")
+  function followup(){
+    console.log("sends answer");
+    bot.sendMessage(msg.chat.id, "let me know when you are done /done");
+  }
+
+  setTimeout(followup, 4000);//wait 2 seconds
+
+});
 
 
-  setTimeout(  bot.sendMessage(msg.chat.id, "did you /succeed ? or did you /fail ?"), 15000 );
+bot.onText(/\/done/, (msg) => {
+
+  bot.sendMessage(msg.chat.id,"nice!");
+
+
+  bot.sendPhoto(msg.chat.id, "https://c8.alamy.com/comp/F2F651/copenhagen-denmark-17th-september-2015-rene-dif-danish-singer-former-F2F651.jpg")
+
+  bot.sendMessage(msg.chat.id,"did you /fail or did you /succeed");
+
+
+
 
 });
 
 bot.onText(/\/succeed/, (msg) => {
-
-
   var randAnswer = answers[Math.floor(Math.random() * answers.length)];
 
+  bot.sendMessage(msg.chat.id, randAnswer);
   bot.sendChatAction(
     msg.chat.id,
     "typing"
   )
-  bot.sendMessage(msg.chat.id, randAnswer);
-  bot.sendMessage(msg.chat.id, "you want more missions? get /mission or say /goodbye");
+
+ function followup(){
+  bot.sendMessage(msg.chat.id, "you want more missions? get /mission or say /goodbye")
+  }
+
+  setTimeout(followup, 4000);//wait 2 seconds
+
 
 });
 
 bot.onText(/\/fail/, (msg) => {
-
-
   var randAnswer = answers[Math.floor(Math.random() * answers.length)];
+  bot.sendMessage(msg.chat.id, randAnswer);
+
 
   bot.sendChatAction(
     msg.chat.id,
     "typing"
   )
-  bot.sendMessage(msg.chat.id, randAnswer);
-  bot.sendMessage(msg.chat.id, "you want more missions? get /mission or say /goodbye");
+
+  function followup(){
+    bot.sendMessage(msg.chat.id, "you want more missions? get /mission or say /goodbye")
+    }
+  
+  setTimeout(followup, 4000);//wait 2 seconds
 
 });
-
-
-
-
 
 
 
@@ -109,62 +130,7 @@ bot.onText(/\/help/, (msg) => {
 
 });
 
-bot.on('photo', (msg) => {
-  var file_id  = (msg.photo[msg.photo.length-1].file_id);
 
-  console.log("picture sent", msg);
-  uploadImage(file_id, msg)
-  // send a message to the chat acknowledging receipt of their message
-  bot.sendMessage(msg.chat.id, 'processing you content');
-  bot.sendChatAction(
-    msg.chat.id,
-    "typing"
-  )
-});
-
-
-
-async function uploadImage(file_id, msg){
-  bot.sendChatAction(
-    msg.chat.id,
-    "typing"
-  )
-  const image_url = await bot.getFileLink(file_id)
-  
-  const uploadRes = await cloudinary.uploader.upload(image_url, {
-      upload_preset: "contentRedistribution",
-      detection: "aws_rek_face",
-      categorization: "google_tagging",
-      public_id:
-        "file_" +
-        Math.random().toString(36).substring(2) +
-        "_from_" + msg.chat.username,
-
-    });
-
-  var answer = 'thank you for your content';
-
-  if(uploadRes.info.categorization.google_tagging.data){
-    const tag1 =  uploadRes.info.categorization.google_tagging.data[0].tag;
-    const tag2 =  uploadRes.info.categorization.google_tagging.data[1].tag;
-    const tag3 =  uploadRes.info.categorization.google_tagging.data[2].tag;
-  
-    answer = 'thank you for your content, I think it might contain ' + tag1 + ", " + tag2 + " and "+ tag3+ "."
-
-  }
-
-  bot.sendMessage(msg.chat.id,  answer);
-
-  if(uploadRes.info.detection.aws_rek_face.data.celebrity_faces[0] && uploadRes.info.detection.aws_rek_face.data.celebrity_faces[0].match_confidence > 80){
-    bot.sendMessage(msg.chat.id, 'and I am like maybe ' + uploadRes.info.detection.aws_rek_face.data.celebrity_faces[0].match_confidence + '/100 certain that it also contains ' + uploadRes.info.detection.aws_rek_face.data.celebrity_faces[0].name );
-  } else if(uploadRes.info.detection.aws_rek_face.data.celebrity_faces[0] && uploadRes.info.detection.aws_rek_face.data.celebrity_faces[0].match_confidence < 80){
-    bot.sendMessage(msg.chat.id, 'and I am pretty unsure about this one, but maybe this is ' + uploadRes.info.detection.aws_rek_face.data.celebrity_faces[0].name +'?');
-  }
-
-  bot.sendMessage(msg.chat.id, 'Wanna /FeedMe some more?, or /SayGoodbye already');
-
-
-}
 
 
 ///express app config for deployed Telegram Bot
