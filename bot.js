@@ -21,13 +21,13 @@ if (process.env.NODE_ENV === 'production') {
 
 bot.onText(/\/start/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "Welcome Human User: " + msg.chat.first_name + " 💖");
+  bot.sendMessage(msg.chat.id, "Hello " + msg.chat.first_name + " 💖, it's me Rene Dip");
   bot.sendChatAction(
     msg.chat.id,
     "typing"
   )
-  bot.sendMessage(msg.chat.id, "I am the HRWAILL_Bot, a working prostesis to the HRWAILL ARCHIVE of Human Expressions");
-  bot.sendMessage(msg.chat.id, "use /MeetMe, /FeedMe or /SayGoodbye to interact with me");
+  bot.sendMessage(msg.chat.id, "I am your local failure disseminator");
+  bot.sendMessage(msg.chat.id, "use /MeetMe, /FailMe or /SayGoodbye to interact with me");
 
 });
 
