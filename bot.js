@@ -297,7 +297,7 @@ bot.on('message', async (msg) => {
 
    if(msg.text === "Let's get out of here"){
 
-    bot.sendMessage(msg.chat.id, "pick me up. take your phone in your hand and take me outside❤️ (❁´◡`❁)").then(function(response) {
+    bot.sendMessage(msg.chat.id, "Pick me up! Take your phone in your hand and take me outside❤️ (❁´◡`❁)").then(function(response) {
       bot.sendMessage(msg.chat.id, "Are U doing it? We could just leave the space we are in and find whatever, or you could spend two small seconds on discovering where you would rather be! (or why you dont wanna be where you are?)")
     }).then(function(response) {
       function followup(){
