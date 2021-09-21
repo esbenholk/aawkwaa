@@ -218,7 +218,7 @@ bot.on('message', async (msg) => {
        
        setTimeout(followup, 3000);//wait 2 seconds
       
-     }).catch();;
+     }).catch(console.log("FAILURE TO GET IMAGE"));
  
    }
 
@@ -226,7 +226,7 @@ bot.on('message', async (msg) => {
    if(msg.text === 'tell me a bit more about the game maybe?'){
 
     bot.sendMessage(msg.chat.id, "Of course " + msg.chat.first_name + "❤️").then(function(response) {
-      bot.sendMessage(msg.chat.id, "Do you ever think about blushing and cringing and nervous sweating? I do. Quite a bit (and I dont even have a body ¯\_(ツ)_/¯). So this game is another failure disseminator. I will be your unreliable guide into the real world, where you will navigate mundane social interactions, cute public exclamations and new disembodied behaviorisms in order to slowly transform yourself into yet another failure. Bleed surrealism into yourself as you play as an awkward agent in a world of cool kids. (Nothing ever really was as sexy as a person caught in their own head.): I will give you missions that you can complete in your own time.")
+      bot.sendMessage(msg.chat.id, "Do you ever think about blushing and cringing and nervous sweating? I do. Quite a bit (and I dont even have a body ¯\_(ツ)_/¯). So this game is another failure disseminator - I will be your unreliable guide into the real world, where you will navigate mundane social interactions, cute public exclamations and new disembodied behaviorisms in order to slowly transform yourself into yet another failure. Bleed surrealism into yourself as you play as an awkward agent in a world of cool kids. /// (Nothing ever really was as sexy as a person caught in their own head.) TL:DR; I will give you awkward missions that you can complete in your own time.")
     }).then(function(response) {
 
       bot.sendPhoto(msg.chat.id, "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png", {caption: "(❁´◡`❁)"})
@@ -263,7 +263,7 @@ bot.on('message', async (msg) => {
       const opts = {
         reply_markup: JSON.stringify({
           keyboard: [
-            ['Yeah! See u another time!'],
+            ['/goodbye'],
             ['idk maybe share a pic first?'],
           ]
         })
