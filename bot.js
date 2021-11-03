@@ -120,7 +120,7 @@ bot.onText(/\/start/, (msg) => {
   );
 
   function followup(){
-    bot.sendMessage(msg.chat.id,'how r u feeling today?')
+    bot.sendMessage(msg.chat.id,'how r u feeling today?', {remove_keyboard : true})
     hasAskedQuestion = true;
   }
   
@@ -150,6 +150,7 @@ bot.on('message', async (msg) => {
 
           const opts = {
             reply_markup: JSON.stringify({
+              one_time_keyboard:true,
               keyboard: [
                 ['Yeah! let´s play 😁'],
                 ['tell me a bit more about the game maybe?'],
@@ -165,6 +166,7 @@ bot.on('message', async (msg) => {
 
           const opts = {
             reply_markup: JSON.stringify({
+              one_time_keyboard:true,
               keyboard: [
                 ['Yeah! let´s play 😁'],
                 ['tell me a bit more about the game maybe?'],
@@ -180,6 +182,8 @@ bot.on('message', async (msg) => {
 
           const opts = {
             reply_markup: JSON.stringify({
+              one_time_keyboard:true,
+
               keyboard: [
                 ['Yeah! let´s play 😁'],
                 ['tell me a bit more about the game maybe?'],
@@ -195,6 +199,8 @@ bot.on('message', async (msg) => {
 
           const opts = {
             reply_markup: JSON.stringify({
+              one_time_keyboard:true,
+
               keyboard: [
                 ['Send me a comforting image plz '],
                 ["Let's get out of here"]
@@ -209,6 +215,8 @@ bot.on('message', async (msg) => {
 
           const opts = {
             reply_markup: JSON.stringify({
+              one_time_keyboard:true,
+
               keyboard: [
                 ['Yeah! let´s play 😁'],
                 ['tell me a bit more about the game maybe?'],
@@ -223,6 +231,8 @@ bot.on('message', async (msg) => {
           console.log("check mainEmotion as string", mainEmotion.toString());
           const opts = {
             reply_markup: JSON.stringify({
+              one_time_keyboard:true,
+
               keyboard: [
                 ['Send me a comforting image plz '],
                 ["Let's get out of here"]
@@ -256,6 +266,8 @@ bot.on('message', async (msg) => {
        function followup(){
          const opts = {
            reply_markup: JSON.stringify({
+            one_time_keyboard:true,
+
              keyboard: [
                ['Yeah! let´s play 😁'],
                ['tell me a bit more about the game maybe?'],
@@ -286,6 +298,8 @@ bot.on('message', async (msg) => {
       function followup(){
         const opts = {
           reply_markup: JSON.stringify({
+            one_time_keyboard:true,
+
             keyboard: [
               ['Yeah! let´s play 😁'],
               ['idk maybe share a pic first?'],
@@ -313,6 +327,8 @@ bot.on('message', async (msg) => {
 
       const opts = {
         reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+
           keyboard: [
             ['/goodbye'],
             ['idk maybe share a pic first?'],
@@ -334,6 +350,8 @@ bot.on('message', async (msg) => {
 
       const opts = {
         reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+
           keyboard: [
             ['/mission'],
             ['/done'],
@@ -354,6 +372,8 @@ bot.on('message', async (msg) => {
       function followup(){
         const opts = {
           reply_markup: JSON.stringify({
+            one_time_keyboard:true,
+
             keyboard: [
               ['Yeah! let´s play 😁'],
               ['idk maybe share a pic first?'],
@@ -389,6 +409,8 @@ bot.onText(/\/mission/, (msg) => {
   function followup(){
     const opts = {
       reply_markup: JSON.stringify({
+        one_time_keyboard:true,
+
         keyboard: [
           ['/done'],
         ]
@@ -413,6 +435,7 @@ bot.onText(/\/done/, (msg) => {
   } else {
     const opts = {
       reply_markup: JSON.stringify({
+        one_time_keyboard:true,
         keyboard: [
           ['/mission'],
           ['I dont wanna play today 😬'],
@@ -437,6 +460,8 @@ bot.onText(/\/succeed/, (msg) => {
     function followup(){
       const opts = {
         reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+
           keyboard: [
             ['/mission'],
             ['/goodbye'],
