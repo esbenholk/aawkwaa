@@ -490,6 +490,8 @@ bot.onText(/\/fail/, (msg) => {
   function followup(){
     const opts = {
       reply_markup: JSON.stringify({
+        one_time_keyboard:true,
+
         keyboard: [
           ['/mission'],
           ['/goodbye'],
