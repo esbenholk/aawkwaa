@@ -165,13 +165,13 @@ bot.on('message', async (msg) => {
   if(msg.text === 'My dog thinks you are cute'){
     startDogStory(msg)
   }
-  if(msg.text === 'Hit me with your best shot'){
-    if(Math.floor(Math.random())===1){
+  if(msg.text === 'hit me with your best shot'){
+    console.log("hits me with best shot");
+    if(Math.random() >= 0.5){
       startHeavenStory(msg)
     } else {
       startDeliveryStory(msg);
     }
-
   }
  
  
