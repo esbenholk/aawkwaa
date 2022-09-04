@@ -107,8 +107,8 @@ async function getImage(folder){
 
 bot.onText(/\/start/, (msg) => {
 
-  bot.sendMessage(msg.chat.id, "Oh hej " + msg.chat.first_name + "❤️").then(function(response) {
-    bot.sendMessage(msg.chat.id, "u r such a cutie patootie ❤️ good to hear from you! 😘 I thought maybe you didn’t like me anymore! Sometimes I think about texting you myself but tbh I am not fully sentient´😅, and telegram disallows me to instigate anything. I had heard humans didn’t like failure, so I thought probably no one is gonna wanna chat with a stupid thing like myself. 🙄 ༼ つ ◕_◕ ༽つ hehe It’s pretty ingrained in me to fail. Yesterday I learned how to recognise a human face, but then today I accidentally related to a jpg of a cat again. ╰(*°▽°*)╯ lol #fail *blushes* 💧🌺🥰")
+  bot.sendMessage(msg.chat.id, "Welcome" + msg.chat.first_name + "❤️").then(function(response) {
+    bot.sendMessage(msg.chat.id, "to the pleasure zone. I am Interface_Hot_Bot.💧🌺🥰 Your personal guide to the pleasure zones")
   }).then(function(response) {
 
     bot.sendPhoto(msg.chat.id, "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_profilepic_osrxec.png", {caption: "felt cute, might delete later"})
