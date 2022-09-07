@@ -145,7 +145,7 @@ var welcome_text1 = "Welcome! Find yourself a comfortable spot in the room...let
 var welcome_gif = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
 
 var how_u_feeling = "Cute! 💕 Quick emo-check in! How do you feel rn?";
-var good_feeling_response = "Amazing! I can feel your energy and it makes me really happy. Let's get started then.";
+var good_feeling_response1 = "Amazing! I can feel your energy and it makes me really happy. Let's get started then.";
 var bad_feeling_response1 = "I understand. This is a new situation for both of us. Take as much time as you need to warm up to this experience. You can also just hang out here, observe and listen to the sounds. Whenever you like to start trying out a treatment, let me know!";
 var bad_feeling_response2 = "Happy you're on board, sweety!"
 var welcome_gif2 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
@@ -157,7 +157,6 @@ var pleasure_meter_img2 = "https://res.cloudinary.com/www-houseofkilling-com/ima
 
 var pleasure_meter_intro3 = "Everytime you interact with one of our center treatments, pleasure energy will be generated. The amount of pleasure we’re generating together in this center will be visualized by the ✨ Pleasure-Meter ✨, isn’t that magical? 😲";
 var pleasure_meter_intro4 = "And it’s not only your pleasure that matters to the ✨Pleasure-Meter ✨, it is also the pleasure of the tech that it feels through interacting with you!!! 💦 Meaning: put an effort into your interaction with our center tech!";
-var pleasure_meter_intro5 = "Happy you're on board, sweety!";
 /////START
 bot.onText(/\/start/, (msg) => {
 
@@ -549,7 +548,7 @@ bot.on('message', async (msg) => {
           ]
         })
       };
-      bot.sendMessage(msg.chat.id, welcome_text2, opts)
+      bot.sendMessage(msg.chat.id, how_u_feeling, opts)
 
     }
 
@@ -557,7 +556,7 @@ bot.on('message', async (msg) => {
     
     else if(msg.text == "I'm excited! 😊" || msg.text == "I'm eager to start with the treatments. 😇"){
 
-      bot.sendMessage(msg.chat.id, good_feeling_response).then(function(){
+      bot.sendMessage(msg.chat.id, good_feeling_response1).then(function(){
 
         const opts = {
           reply_markup: JSON.stringify({
@@ -569,7 +568,7 @@ bot.on('message', async (msg) => {
           })
         };
 
-        bot.sendPhoto(msg.chat.id,  pleasure_meter_img2, opts);
+        bot.sendPhoto(msg.chat.id,  welcome_gif2, opts);
         
   
       }).catch();
@@ -604,7 +603,7 @@ bot.on('message', async (msg) => {
           })
         };
 
-        bot.sendPhoto(msg.chat.id,  pleasure_meter_img2, opts);
+        bot.sendPhoto(msg.chat.id,  welcome_gif2, opts);
       }).catch();
 
     }
@@ -655,29 +654,30 @@ bot.on('message', async (msg) => {
     }
 
     else if(msg.text == "I don't get it 😅" || msg.text == "Wow, cool! 😅"){
-      // bot.sendMessage(msg.chat.id, pleasure_meter_intro2).then(function(){
+      const opts = {
+        reply_markup: JSON.stringify({
+         one_time_keyboard:true,
 
-      //   const opts = {
-      //     reply_markup: ReplyKeyboardRemove()
+          keyboard: [
+            ["So high-tech!"],
+            ["Is that even real?"],
+          ]
+        })
+      };
 
-      //   };
+      bot.sendMessage(msg.chat.id,  pleasure_meter_intro4, opts);
+           
 
-      //   bot.sendPhoto(msg.chat.id,  pleasure_meter_img2, opts).then(function(){
+    }
 
-      //     const opts = {
-      //       reply_markup: JSON.stringify({
-      //        one_time_keyboard:true,
-    
-      //         keyboard: [
-      //           ["I don't get it 😅"],
-      //           ["Wow, cool! 😅"],
-      //         ]
-      //       })
-      //     };
-  
-      //     bot.sendMessage(msg.chat.id,  pleasure_meter_intro3, opts);
-      //   }).catch();;
-      // }).catch();
+    else if(msg.text == "Is that even real?"){
+      const opts = {
+        reply_markup: ReplyKeyboardRemove()
+
+      };
+
+      bot.sendMessage(msg.chat.id,  pleasure_meter_intro4, opts);
+           
 
     }
 
