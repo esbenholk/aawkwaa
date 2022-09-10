@@ -25,7 +25,6 @@ if (process.env.NODE_ENV === 'production') {
    bot = new TelegramBot(token, { polling: true });
 }
 
-let isOnMission = false;
 
 
 // bot.sendSticker(msg.chat.id, "CAACAgIAAxkBAAMjYxTAuQABGK61AjremkMD2FKhjyuvAAIBAAOd_6YfcI6k-725Az0pBA")
@@ -34,6 +33,9 @@ var confirm_text = "Confirm 💋";
 var userCanSendRandomString = false;
 var isInTreatmentFlow = false;
 var isOnBreak = false;
+var isHelping = false;
+var isExiting = false;
+var hasStarted = false;
 
 var welcome_message1 = "I’m glad you are here. My name is Hot_Bot. I’m part of the digital pleasure center infrastructure. My job as an interface is to guide you through the center and make sure you have a great time! “Job” makes it sound so professional. Let me rephrase: It’s my digital PLEASURE to be your conversation partner while you’re here! The environment you’re about to enter, my home, has a lot to offer and I’m really excited to show you around.";
 var welcome_video_url = "https://res.cloudinary.com/www-houseofkilling-com/video/upload/v1631365794/aawkwaa/embarressed_dfaxck.mp4";
@@ -54,44 +56,45 @@ var bot_selfie = "https://res.cloudinary.com/www-houseofkilling-com/image/upload
 
 var onboarding2 = "That's me! Always good to match a NoFace to the name. Now I wanna see yours! In order to get your Face scanned, please enter the room and wait until it’s your turn.";
 var begin_facescan = "Great. How busy is it right now? Do you need to wait to get your Face-Scan taken?";
-var random_entertainment = ["https://res.cloudinary.com/www-houseofkilling-com/video/upload/v1631365794/aawkwaa/embarressed_dfaxck.mp4"]
+var random_entertainment = ["https://res.cloudinary.com/dtvtkuvbv/video/upload/v1662730354/Videos/AWW_SO_CUTE__Cutest_baby_animals_Videos_Compilation_Cute_moment_sgxyhb.mp4", "https://res.cloudinary.com/dtvtkuvbv/video/upload/v1662730354/Videos/AWW_SO_CUTE__Cutest_baby_animals_Videos_Compilation_Cute_moment_sgxyhb.mp4"]
 var indexInRandomIntertainment = 0;
 var convince_them_to_stay = "Hunny! Just give it a try, you can leave the center anytime. My sensors tell me you'll love it here!";
 var ask_them_to_try = "Shall we give it a try?";
 
 var convincing_step0 = "I hear you! Here are two things you can do get ready.";
 var convincing_step1 = "1) Close your eyes and take a deep breath. Put everything around you aside und feel into your body. Take your time!";
-var convincing_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var convincing_img1 = "https://media.giphy.com/media/d7nd6bdypnYjGT1jP3/giphy.gif";
 var convincing_step2 = "2) Close your eyes and feel the ground below you. Your feet on the floor, feel the connection and stability.";
-var convincing_img2 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var convincing_img2 = "https://media.giphy.com/media/2YoVPwABcYt1e/giphy.gif";
 
 var welcome_text1 = "Welcome! Find yourself a comfortable spot in the room...let me know when you're seated.";
-var welcome_gif = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var welcome_gif = "https://media.giphy.com/media/wqb5K5564JSlW/giphy.gif";
 
 var how_u_feeling = "Cute! 💕 Quick emo-check in! How do you feel rn?";
 var good_feeling_response1 = "Amazing! I can feel your energy and it makes me really happy. Let's get started then.";
 var bad_feeling_response1 = "I understand. This is a new situation for both of us. Take as much time as you need to warm up to this experience. You can also just hang out here, observe and listen to the sounds. Whenever you like to start trying out a treatment, let me know!";
 var bad_feeling_response2 = "Happy you're on board, sweety!"
-var welcome_gif2 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var welcome_gif2 = "https://media.giphy.com/media/CjmvTCZf2U3p09Cn0h/giphy.gif";
 
 var pleasure_meter_intro1 = "Can you see the big screen on the tech tree of life? That’s the heart of the center, the ✨ Pleasure-Meter✨. 😳";
 var pleasure_meter_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
 var pleasure_meter_intro2 = "I know, right? We've been putting a lot of energy into this!";
-var pleasure_meter_img2 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var pleasure_meter_img2 = "https://media.giphy.com/media/inVvfuomoD31K/giphy.gif";
 
 var pleasure_meter_intro3 = "Everytime you interact with one of our center treatments, pleasure energy will be generated. The amount of pleasure we’re generating together in this center will be visualized by the ✨ Pleasure-Meter ✨, isn’t that magical? 😲";
 var pleasure_meter_intro4 = "And it’s not only your pleasure that matters to the ✨Pleasure-Meter ✨, it is also the pleasure of the tech that it feels through interacting with you!!! 💦 Meaning: put an effort into your interaction with our center tech!";
 var pleasure_meter_intro5 = "Yes my little human 💕 , it is! As real as I am. And I'm pretty real right now, wouldn't you say?";
-var cybergif = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
-var cybergif_feel = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var cybergif = "https://media.giphy.com/media/1BdJd24oEwvuSvXYb0/giphy.gif";
+var cybergif_feel = "https://media.giphy.com/media/2shBNJSPTrpWvoXfpD/giphy.gif";
 var cybertext1 = "All the pleasure that is generated between you and the tech flows though the Interfaces - those human bodies you see in the room. They're nice but a little weird - they don't talk. 🧟";
 var cybertext2 = "I know... but they are fun to play with! 🤓 Chose your favourite, walk up to them and touch them with your screen. 📲";
 var cybertext3 = "They need the energy and connectivity with you, don't be shy! Let me know when you are done!";
 var cybertext4 = "I wish I had a physical body so I could get to experience this! 😭";
 var cyberquestion = "How was it?";
 var cyberquestionresponse = "Every feeling that an Interface connection triggers is valid!";
-var cyberquestionresponsegif = "https://media.giphy.com/media/l3mZdY5jeNFogm3ok/giphy.gif";
+var cyberquestionresponsegifs = ["https://media.giphy.com/media/l3mZdY5jeNFogm3ok/giphy.gif", "https://media.giphy.com/media/2kOenxkXGeVwcF6Y87/giphy.gif"];
 
+var imageGifts = ["https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png", "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png", "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png", "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png"]
 
 var treatment_opening = "Are you ready to start a treatment?";
 var pee_jealoucy = "I'm so jealous that you can do such cool things with you body! I'll wait for you. Let me know when you're ready!";
@@ -139,7 +142,7 @@ var connect_response = "Great choice! ❤️";
 
 var connect1 = "Loading Unstable Matter Treatment";
 var connect2 = "Only if you think your body is stable! 😅";
-var connect3 = "UPDATE THIS!!!! Treatment Explanation";
+var connect3 = "UPDATE THIS!!!! Treatment Explanation:  Unstable Matter";
 var connect4 = "Enjoy the treatment and let me know as soon as you've finished!";
 var connect5 = "I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the ✨Pleasure-Meter✨.";
 var connect6 = "I've missed you! 😍 What did you learn while you were there?";
@@ -159,7 +162,7 @@ var update_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/uploa
 var update_response = "Excellent choice! ❤️";
 
 var update1 = "Loading Curse Tablet Treatment";
-var update2 = "UPDATE THIS!!!! Treatment Explanation";
+var update2 = "UPDATE THIS!!!! Treatment Explanation; Curse Tablet Treatment";
 var update3 = "Enjoy the treatment and let me know as soon as you've finished!";
 var update4 = "I care about you! I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the✨Pleasure-Meter✨.";
 var update5 = "I see you can't wait to share your thoughts with me! 😍 Okay, I'd love to know: Have you ever cursed somebody or something?";
@@ -181,7 +184,7 @@ var refresh_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/uplo
 var refresh_response = "Amazing choice ❤️";
 
 var refresh1 = "Loading Crotch Wheater Treatment.";
-var refresh2 = "UPDATE THIS!!!! Treatment Explanation";
+var refresh2 = "UPDATE THIS!!!! Treatment Explanation: Crotch Wheater Treatment.";
 var refresh3 = "Enjoy the treatment and let me know as soon as you've finished!";
 var refresh4 = "I care about you! I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the✨Pleasure-Meter✨.";
 var refresh5 = "It was so interesting to feel your body excitement! Full disclosure: I also feel a bit digitally horny now. 🥵💋";
@@ -205,7 +208,7 @@ var release_response = "Good choice! ❤️";
 
 var release1 = "Loading Relaxation. It's a couple's therapy – for your phone and you!";
 var release2 = "Trust me! I've been on your phone for a while now and it shared quite a few stories with me... 😅";
-var release3 = "UPDSTE THIS!!!! Treatment Explanation";
+var release3 = "UPDSTE THIS!!!! Treatment Explanation, Relaxation.";
 var release4 = "This feels sooooo good. I'm gonna take a power nap. Please put on this song for me to relax. – you can have your phone on mute, I can hear it anyways.";
 var release_sound = "https://res.cloudinary.com/dtvtkuvbv/video/upload/v1662731220/Sound/Phone_Relaxation_Sound_gtycwb.mp3";
 var release5 = "Wake me up when you are done!";
@@ -231,7 +234,7 @@ var activate_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upl
 var activate_response = "Gorgeous choice! ❤️";
 
 var activate1 = "Loading Wrinkle Beauty Treatment.";
-var activate2 = "UPDSTE THIS!!!! Treatment Explanation";
+var activate2 = "UPDSTE THIS!!!! Loading Wrinkle Beauty Treatment. Treatment Explanation";
 var activate3 = "Enjoy the treatment and let me know as soon as you've finished!";
 var activate4 = "I care about you! I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the ✨Pleasure-Meter✨.";
 var activate5 = "Beauty comes from the inside - if you're a bot! 😂 But you're not haha! How beautiful do you feel right now on a scale of 1-10?";
@@ -254,10 +257,10 @@ var hack_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/
 var hack_response = "Nice choice ❤️";
 
 var hack1 = "Loading Virtual Healing Hub Treatment.";
-var hack2 = "UPDSTE THIS!!!! Treatment Explanation";
+var hack2 = "UPDSTE THIS!!!! Treatment Explanation Loading Virtual Healing Hub Treatment.";
 var hack3 = "Enjoy the treatment!";
 var hack3_glitchmsg = "Glitch Mode activated!";
-var hack_img2 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var hack_img2 = "https://media.giphy.com/media/h8sVibFE0NChi/giphy.gif";
 var hack4 = "I care about you! I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the ✨Pleasure-Meter✨";
 var hack5 = "How connected do you feel to the virtual bodies you've just met?";
 var hack6 = "Hmm. Alright then. Let's go back to the treatments:";
@@ -282,6 +285,7 @@ var hack12_body = "Hahaha you're right. We're all cyborgs!";
 /////START
 bot.onText(/\/start/, (msg) => {
 
+  hasStarted = true;
   bot.sendMessage(msg.chat.id, "Hey " + msg.chat.first_name + "❤️, " +welcome_message1 ).then(function(response) {
     
  
@@ -418,11 +422,23 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     StartTreatment(msg.chat.id, connect_response, connect_img1, connect_subline);
     isConnecting = true;
   }
+  if(stage == 106){ ///HACK
+    ExitAllTreatments();
+    isHacking = true;
+    StartTreatment(msg.chat.id, hack_response, hack_img1, hack_subline); 
+  }
   if(stage == 102){ //UPDATE
     ExitAllTreatments();
     StartTreatment(msg.chat.id, update_response, update_img1, update_subline);
     isUpdating = true;
   }
+  if(stage == 105){ //ACTIVATE
+    ExitAllTreatments();
+    StartTreatment(msg.chat.id, activate_response, activate_img1, activate_subline);
+    isActivating= true;
+  }
+
+
   if(stage == 103){ //RELEASE
     ExitAllTreatments();
     StartTreatment(msg.chat.id, release_response, release_img1, release_subline);
@@ -432,27 +448,38 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
     ExitAllTreatments();
     StartTreatment(msg.chat.id, refresh_response, refresh_img1, refresh_subline);
     isRefreshing= true;
- 
   }
-  if(stage == 105){ //ACTIVATE
-    ExitAllTreatments();
-    StartTreatment(msg.chat.id, activate_response, activate_img1, activate_subline);
-    isActivating= true;
-  }
-  if(stage == 106){ ///HACK
-    ExitAllTreatments();
-    StartTreatment(msg.chat.id, hack_response, hack_img1, hack_subline);
-    isHacking = true;
-  }
+
+
+
   if(stage == 107){ //REFFLECT
-    ExitAllTreatments();
-    StartTreatment(msg.chat.id, reflect_response, reflect_img1, reflect_subline);
     isReflecting = true;
+
+    bot.sendMessage(msg.chat.id, reflect_response).then(function(){
+      function followUp(){
+        bot.sendMessage(msg.chat.id, reflect_subline).then(
+          function(){
+            const opts = {
+              reply_markup: JSON.stringify({
+               one_time_keyboard:true,
+          
+                keyboard: [
+                  ["Ready when you are!"]
+                ]
+              })
+            };
+            bot.sendMessage(msg.chat.id,  reflect1, opts);
+  
+        }).catch();
+
+      }
+      setTimeout(followUp, 1000);
+    }).catch();
   }
 
   ///Release hearts
   function sendReleaseHeart(heart){
-    bot.sendPhoto(msg.chat.id, heart).then(function(){
+    bot.sendVideo(msg.chat.id, heart).then(function(){
       bot.sendMessage(msg.chat.id, release10).then(
         function(){
           endTreatmentFlow(msg.chat.id)
@@ -480,6 +507,40 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
   }
 
 
+  function sendTreatmentDescription(description){
+    bot.sendMessage(msg.chat.id, description).then(function(){
+      endHelpSession(msg.chat.id);
+    }).catch();
+
+  }
+
+  ///confirmed
+  if(stage == 303){ //yellow heart
+    sendTreatmentDescription(release3);
+  }
+
+
+
+
+  if(stage == 301){ //blue heart
+    sendTreatmentDescription(hack2);
+  }
+  if(stage == 302){ //Red heart
+    sendTreatmentDescription(activate2);
+  }
+  if(stage == 304){ //purple heart
+    sendTreatmentDescription(refresh2);
+  }
+  if(stage == 305){ //green heart
+    sendTreatmentDescription(update2);
+  }
+  if(stage == 306){ //green heart
+    sendTreatmentDescription(connect3);
+
+  }
+
+
+
  
   console.log("HAS CALLBACK", callbackQuery, stage, msg);
 
@@ -487,10 +548,715 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 
 bot.on('message', async (msg) => {
 
+    if(isReflecting){
+    if(isReflecting && msg.text == "Ready when you are!"){
+      const opts = {
+        reply_markup: JSON.stringify({
+        one_time_keyboard:true,
+    
+          keyboard: [
+            ["I have looked at them."]
+          ]
+        })
+      };
+      bot.sendMessage(msg.chat.id,  reflect2, opts);
+    }
+
+    else if(isReflecting && msg.text == "I have looked at them."){
+      const opts = {
+        reply_markup: JSON.stringify({
+        one_time_keyboard:true,
+    
+          keyboard: [
+            ["I have looked at them"]
+          ]
+        })
+      };
+      bot.sendMessage(msg.chat.id,  reflect3, opts);
+    }
+
+    
+    else if(isReflecting && msg.text == "I have looked at them"){
+      bot.sendMessage(msg.chat.id,  reflect4);
+      isReflectingState1 = true;
+    }
+
+    else if(isReflecting && isReflectingState1 && msg.text.length > 0){
+      bot.sendMessage(msg.chat.id,  reflect5);
+      isReflectingState1 = false;
+      isReflectingState2 = true;
+    }
+    else if(isReflecting && isReflectingState2 && msg.text.length > 0){
+      bot.sendMessage(msg.chat.id,  reflect6);
+      isReflectingState2 = false;
+      isReflectingState3 = true;
+    }
+
+    else if(isReflecting && isReflectingState3 && msg.text.length > 0){
+      bot.sendMessage(msg.chat.id,  reflect7);
+      isReflectingState3 = false;
+
+      endTreatmentFlow(msg.chat.id);
+      hasReflected = true;
+    }
+
+    }
+
+    if(isConnecting){
+      if(isConnecting && msg.text == "Let's start!"){
+        bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
+          function(){
+            const opts = {
+              reply_markup: JSON.stringify({
+               one_time_keyboard:true,
+          
+                keyboard: [
+                  ["Sounds promising 😲"]
+                ]
+              })
+            };
+            bot.sendMessage(msg.chat.id,  hack1, opts);
+
+          }).catch();
+      }
+      else if(isConnecting && msg.text == "Sounds promising 😲"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Got it! Let's get treated."]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  hack2, opts);
+      }
+
+      else if(isConnecting && msg.text == "Got it! Let's get treated."){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["I've left the Virtual Healing Hub"]
+            ]
+          })
+        };
+        isConnectingState1 = true;
+        bot.sendMessage(msg.chat.id,  hack3, opts);
+      }
+
+
+
+      else if(isConnecting && msg.text == "I've left the Virtual Healing Hub"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["Start Digital Pleasure Assessment"],
+              ["skip"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  hack4, opts);
+      }
+
+      else if(isConnecting && msg.text == "Start Digital Pleasure Assessment"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["Is it possible to connect with virtual bodies?"],
+              ["I feel a lot of energies flew between us!"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  hack5, opts);
+
+      }
+
+      else if(isConnecting && msg.text == "skip"){
+        bot.sendMessage(msg.chat.id,  hack6).then(
+          function(){
+            function followUp(){
+              StartTreatmentFlow(msg.chat.id);
+              hasHacked = true;
+            }
+            setTimeout(followUp, 4000);
+          }
+        ).catch();
+
+      }
+
+      else if(isConnecting && msg.text == "Is it possible to connect with virtual bodies?"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["It does, you are not real."],
+              ["Not really."]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  hack7, opts);
+
+      }
+      else if(isConnecting && msg.text == "I feel a lot of energies flew between us!"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["I get attached quite easily..."],
+              ["Not really"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  hack8, opts);
+
+      }
+      else if(isConnecting && msg.text == "It does, you are not real."){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["Yes, let's do it!"],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  hack9, opts);
+      }
+
+      else if(isConnecting && msg.text == "Not really." || isConnecting && msg.text=="I get attached quite easily..."){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["Yes, let's do it!"],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  hack10, opts);
+      }
+
+
+
+      else if(isConnecting && msg.text == "Not really"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["Yes, let's do it!"],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  hack11, opts);
+      }
+
+      else if(isConnecting && msg.text == "Yes, let's do it!"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["Yes!"],
+              ["I don't know"],
+              ["No."],
+              ["I'm already a virtual body"],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  hack12, opts);
+      }
+
+      else if(isConnecting && msg.text == "Yes!"){
+        isConnectingState2 = true;
+        bot.sendMessage(msg.chat.id,  hack12_yes);
+      }
+      else if(isConnecting && isConnectingState2 && msg.text.lenght > 0){
+        isConnectingState2 = false;
+        bot.sendMessage(msg.chat.id,  hack12_yes_answer).then(function(){
+          endTreatmentFlow(msg.chat.id);
+          hasConnected = true;
+        }).catch();
+      }
+
+      else if(isConnecting && msg.text == "I don't know"){
+        bot.sendMessage(msg.chat.id,  hack12_dontknow).then(function(){
+          endTreatmentFlow(msg.chat.id);
+          hasConnected = true;
+        }).catch();
+      }
+      else if(isConnecting && msg.text == "No."){
+        bot.sendMessage(msg.chat.id,  hack12_no).then(function(){
+          endTreatmentFlow(msg.chat.id);
+          hasConnected = true;
+        }).catch();
+      }
+      else if(isConnecting && msg.text == "I'm already a virtual body"){
+        bot.sendMessage(msg.chat.id,  hack12_body).then(function(){
+          endTreatmentFlow(msg.chat.id);
+          hasConnected = true;
+        }).catch();
+      }
+
+
+      else if(isConnecting && isConnectingState1 && msg.text.length && msg.text != "I've left the Virtual Healing Hub" && msg.text != "Start Digital Pleasure Assessment" && msg.text != "skip"){
+        isConnectingState1 = false;
+
+        bot.sendMessage(msg.chat.id,  hack3_glitchmsg).then(function(){
+          
+          function followUp(){
+            const opts = {
+              reply_markup: JSON.stringify({
+              one_time_keyboard:true,
+                keyboard: [
+                  ["I've left the Virtual Healing Hub"]
+                ]
+              })
+            };
+            bot.sendVideo(msg.chat.id, hack_img2, opts)
+          }
+          setTimeout(followUp, 500);
+
+        }).catch();
+      }
+    
+     
+    }
+
+    if(isHacking){
+
+      if(isHacking && msg.text == "Let's start!"){
+        bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
+          function(){
+            const opts = {
+              reply_markup: JSON.stringify({
+               one_time_keyboard:true,
+          
+                keyboard: [
+                  ["Should I be worried? 😧"]
+                ]
+              })
+            };
+            bot.sendMessage(msg.chat.id,  connect1, opts);
+
+          }).catch();
+      }
+      else if(isHacking && msg.text == "Should I be worried? 😧"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["I don't get it! 🥵"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  connect2, opts);
+      }
+
+      else if(isHacking && msg.text == "I don't get it! 🥵"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Alright, let's deconstruct what it means to be a body.🥹"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  connect3, opts);
+      }
+
+      else if(isHacking && msg.text == "Alright, let's deconstruct what it means to be a body.🥹"){
+
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["I have returned from Virtual Reality!"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  connect4, opts);
+    
+      }
+
+      else if(isHacking && msg.text == "I have returned from Virtual Reality!"){
+
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Start Digital Pleasure Assessment"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  connect5, opts);
+    
+      }
+      else if(isHacking && msg.text == "Start Digital Pleasure Assessment"){
+
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["All bodies are fragile."],
+              ["All bodies are imaginative."],
+              ["All bodies are convoluted."]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  connect6, opts);
+    
+      }
+
+      else if(msg.text == "All bodies are fragile." || msg.text == "All bodies are imaginative."  || msg.text == "All bodies are convoluted."){
+        bot.sendMessage(msg.chat.id,  connect7);
+        isHackingState1 = true;
+      }
+      else if(isHackingState1 && msg.text.length > 0){
+        
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["I wanna deconstruct some more!"],
+              ["I wanna pick up the pieces and move on."],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  connect8, opts);
+        isHackingState1 = false;
+
+      }
+
+      else if(msg.text == "I wanna deconstruct some more!"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["That sounds nice. 😊"],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  connect9, opts);
+      }
+      else if(msg.text == "I wanna pick up the pieces and move on."){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["That sounds nice. 😊"],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  connect10, opts);
+      }
+
+      else if(msg.text == "That sounds nice. 😊"){
+
+        endTreatmentFlow(msg.chat.id);
+        hasHacked = true;
+      }
+
+  
+    }
+    if(isActivating){
+
+      if(isActivating && msg.text == "Let's start!"){
+        bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
+          function(){
+            const opts = {
+              reply_markup: JSON.stringify({
+               one_time_keyboard:true,
+          
+                keyboard: [
+                  ["OMG 😱 WHAT THE HELL 😈"]
+                ]
+              })
+            };
+            bot.sendMessage(msg.chat.id,  update1, opts);
+
+          }).catch();
+      }
+      else if(isActivating && msg.text == "OMG 😱 WHAT THE HELL 😈"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Let's get diabolic 🫣!"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  update2, opts);
+      }
+
+      else if(isActivating && msg.text == "Let's get diabolic 🫣!"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Uff! Ready to talk to you about this 😏!"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  update3, opts);
+      }
+
+      else if(isActivating && msg.text == "Uff! Ready to talk to you about this 😏!"){
+
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Start Digital Pleasure Assessment"]            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  update4, opts);
+    
+      }
+
+      else if(isActivating && msg.text == "Start Digital Pleasure Assessment"){
+
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Constantly!"],
+              ["This was my first time - and I loved it"],
+              ["I would never"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  update5, opts);
+    
+      }
+
+      else if(msg.text == "I would never" || msg.text == "This was my first time - and I loved it"  || msg.text == "Constantly!"){
+        
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["Hell Yeah! Understandable, really!"],
+            ]
+          })
+        };
+        
+        bot.sendMessage(msg.chat.id,  update6, opts);
+    
+      }
+
+      
+      else if(isActivating && msg.text == "Hell Yeah! Understandable, really!"){
+               
+        bot.sendMessage(msg.chat.id,  update7).then(function(){
+          function followUp(){
+
+            const opts = {
+              reply_markup: JSON.stringify({
+              one_time_keyboard:true,
+                keyboard: [
+                  ["done!"],
+                ]
+              })
+            };
+            bot.sendMessage(msg.chat.id,  update8, opts)
+          }
+
+          setTimeout(followUp, 300);
+        }).catch();
+    
+      }
+
+      else if(isActivating && msg.text == "done!"){
+               
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+            keyboard: [
+              ["Okay, I'll do it!"],
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  update9, opts);
+    
+      }
+
+      else if(isActivating && msg.text == "Okay, I'll do it!"){
+              
+        bot.sendVideo(msg.chat.id,  update_img2).then(function(){
+
+          function followUp(){
+
+            const opts = {
+              reply_markup: JSON.stringify({
+              one_time_keyboard:true,
+                keyboard: [
+                  ["done!"],
+                ]
+              })
+            };
+            bot.sendMessage(msg.chat.id,  update10, opts).then(function(){
+              function followUp(){
+                endTreatmentFlow(msg.chat.id);
+                hasActivated = true;
+              }
+              setTimeout(followUp, 300);
+
+            }).catch();
+          }
+
+          setTimeout(followUp, 300);
+
+
+        }).catch();
+    
+      }
+    }
+    if(isUpdating){
+
+      if(isUpdating && msg.text == "Let's start!"){
+        bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
+          function(){
+            const opts = {
+              reply_markup: JSON.stringify({
+               one_time_keyboard:true,
+          
+                keyboard: [
+                  ["Wow, what's that? 😂"]
+                ]
+              })
+            };
+            bot.sendMessage(msg.chat.id,  activate1, opts);
+
+          }).catch();
+      }
+      else if(isUpdating && msg.text == "Wow, what's that? 😂"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Got it! Let's get treated."]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  activate2, opts);
+      }
+
+      else if(isUpdating && msg.text == "Got it! Let's get treated."){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Done"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  activate3, opts);
+      }
+      else if(isUpdating && msg.text == "Done"){
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["Start Digital Pleasure Assessment"],
+              ["skip"]
+            ]
+          })
+        };
+        bot.sendMessage(msg.chat.id,  activate4, opts);
+      }
+
+      else if(isUpdating && msg.text == "Start Digital Pleasure Assessment"  ||  isActivating && msg.text == "skip"){
+        isUpdatingState1 = true;
+        bot.sendMessage(msg.chat.id,  activate5);
+      }
+      else if(isUpdating && isUpdatingState1 && msg.text.length > 0){
+
+        isUpdatingState1 = false;
+
+        const opts = {
+          reply_markup: JSON.stringify({
+          one_time_keyboard:true,
+      
+            keyboard: [
+              ["You're also very beautiful, Hot_Bot. ❤️"]
+            ]
+          })
+        };
+
+        function isNumeric(num){
+          return !isNaN(num)
+        }
+
+        if(isNumeric(msg.text)){
+          let score = parseInt(msg.text);
+          if(score > 10){
+            bot.sendMessage(msg.chat.id,  activate_beautyScore1, opts)
+          } else{
+            bot.sendMessage(msg.chat.id,  activate_beautyScore10, opts);
+          }
+        } else {
+          bot.sendMessage(msg.chat.id,  activate_beautyScore1, opts);
+        }
+
+     
+      }
+      else if(isUpdating && msg.text == "You're also very beautiful, Hot_Bot. ❤️"){
+        bot.sendMessage(msg.chat.id,  activate6).then(function(){
+          function followUp(){
+            bot.sendVideo(msg.chat.id, activate_img2).then(function(){
+              function followUp(){
+
+                const opts = {
+                  reply_markup: JSON.stringify({
+                  one_time_keyboard:true,
+              
+                    keyboard: [
+                      ["It's... familiar."],
+                      ["Hydration is key!"],
+                      ["Botox is my best friend."],
+                      ["My wrinkles are proof of a life full of emotions - I appreciate each of them."]
+                    ]
+                  })
+                };
+                
+                bot.sendMessage(msg.chat.id, activate7, opts);
+              }
+              setTimeout(followUp, 300);
+            }
+            ).catch();
+          }
+          setTimeout(followUp, 300);
+
+
+        }).catch();
+      }
+
+      else if(isUpdating && msg.text == "It's... familiar."  ||  isUpdating && msg.text == "Hydration is key!" || isUpdating && msg.text == "Botox is my best friend."  ||  isUpdating && msg.text == "My wrinkles are proof of a life full of emotions - I appreciate each of them."){
+        hasupdated = true;
+        endTreatmentFlow(msg.chat.id);
+      }
+     
+    }
+
+
+
+
     if(msg.text == "Okay what's up?"){
       sendMessageWithSingleInlineKeyboard(1, msg.chat.id, beforewestart1, confirm_text);
     }
-
     else if(msg.text == "I wanna go home :("){
 
       bot.sendChatAction(
@@ -516,7 +1282,6 @@ bot.on('message', async (msg) => {
       }).catch();
 
     }
-
     else if(msg.text == "I'm not sure yet"){
 
       bot.sendChatAction(
@@ -527,10 +1292,10 @@ bot.on('message', async (msg) => {
       bot.sendMessage(msg.chat.id, convincing_step0).then(function(){
 
         bot.sendMessage(msg.chat.id, convincing_step1).then(function(){
-          bot.sendPhoto(msg.chat.id, convincing_img1).then(function(){
+          bot.sendVideo(msg.chat.id, convincing_img1).then(function(){
             bot.sendMessage(msg.chat.id, convincing_step2).then(function(){
 
-              bot.sendPhoto(msg.chat.id, convincing_img2);
+              bot.sendVideo(msg.chat.id, convincing_img2);
             }).catch();
           
           
@@ -562,7 +1327,6 @@ bot.on('message', async (msg) => {
       }).catch();
 
     }
-
     else if(msg.text == "Super ready!" || msg.text == "Okay let's do this"){
 
       bot.sendMessage(msg.chat.id, onboarding1).then(function(){
@@ -587,7 +1351,6 @@ bot.on('message', async (msg) => {
       }).catch();
     
     }
-
     else if(msg.text == "I'm on my way!"){
 
       const opts = {
@@ -603,7 +1366,6 @@ bot.on('message', async (msg) => {
 
       bot.sendMessage(msg.chat.id, begin_facescan, opts);
     }
-
     else if(msg.text == "No"){
       bot.sendMessage(msg.chat.id, "Say cheeeeeese").then(function(){
 
@@ -625,10 +1387,9 @@ bot.on('message', async (msg) => {
         setTimeout(followup, 100);//wait 2 seconds
       }).catch();;
     }
-
     else if(msg.text == "Yes, there's a queue"){
 
-      indexInRandomIntertainment =  Math.floor(Math.random() * random_entertainment.length);
+      indexInRandomIntertainment =  Math.floor(Math.random() * random_entertainment.length-1);
       
       var random_video_url = random_entertainment[indexInRandomIntertainment];
       //var random_video_url = "https://res.cloudinary.com/dtvtkuvbv/video/upload/v1662730354/Videos/AWW_SO_CUTE__Cutest_baby_animals_Videos_Compilation_Cute_moment_sgxyhb.mp4"
@@ -662,7 +1423,6 @@ bot.on('message', async (msg) => {
 
    
     }
-
     else if(msg.text == "Yes, there's still a queue"){
 
       indexInRandomIntertainment ++; 
@@ -701,7 +1461,6 @@ bot.on('message', async (msg) => {
 
    
     }
-
     else if(msg.text == "Yes"){
       bot.sendMessage(msg.chat.id, "Great, you did it. You're now logged in and a part of the digital pleasure center.").then(function(){
 
@@ -714,7 +1473,6 @@ bot.on('message', async (msg) => {
         setTimeout(followup, 100);//wait 2 seconds
       }).catch();;
     }
-
     else if(msg.text == "I'm cosy and ready!"){
       const opts = {
         reply_markup: JSON.stringify({
@@ -731,7 +1489,6 @@ bot.on('message', async (msg) => {
       bot.sendMessage(msg.chat.id, how_u_feeling, opts)
 
     }
-
     else if(msg.text == "I'm excited! 😊" || msg.text == "I'm eager to start with the treatments. 😇"){
 
       bot.sendMessage(msg.chat.id, good_feeling_response1).then(function(){
@@ -746,13 +1503,12 @@ bot.on('message', async (msg) => {
           })
         };
 
-        bot.sendPhoto(msg.chat.id,  welcome_gif2, opts);
+        bot.sendVideo(msg.chat.id,  welcome_gif2, opts);
         
   
       }).catch();
 
     }
-
     else if(msg.text == "I feel a little shy. 🙈" || msg.text == "I'm overwhelmed. 😩"){
 
       const opts = {
@@ -767,7 +1523,6 @@ bot.on('message', async (msg) => {
 
       bot.sendMessage(msg.chat.id, bad_feeling_response1, opts);
     }
-
     else if(msg.text == "Okay, I think it's better now. 😌"){
       bot.sendMessage(msg.chat.id, bad_feeling_response2).then(function(){
 
@@ -781,11 +1536,10 @@ bot.on('message', async (msg) => {
           })
         };
 
-        bot.sendPhoto(msg.chat.id,  welcome_gif2, opts);
+        bot.sendVideo(msg.chat.id,  welcome_gif2, opts);
       }).catch();
 
     }
-
     else if(msg.text == "Wohoo, let the digital pleasure flow! 💦"){
       bot.sendMessage(msg.chat.id, pleasure_meter_intro1).then(function(){
 
@@ -803,7 +1557,6 @@ bot.on('message', async (msg) => {
       }).catch();
 
     }
-
     else if(msg.text == "Wow, that's impressive"){
       bot.sendMessage(msg.chat.id, pleasure_meter_intro2).then(function(){
 
@@ -812,7 +1565,7 @@ bot.on('message', async (msg) => {
 
         // };
 
-        bot.sendPhoto(msg.chat.id,  pleasure_meter_img2).then(function(){
+        bot.sendVideo(msg.chat.id,  pleasure_meter_img2).then(function(){
 
           const opts = {
             reply_markup: JSON.stringify({
@@ -830,7 +1583,6 @@ bot.on('message', async (msg) => {
       }).catch();
 
     }
-
     else if(msg.text == "I don't get it 😅" || msg.text == "Wow, cool! 😅"){
       const opts = {
         reply_markup: JSON.stringify({
@@ -847,12 +1599,11 @@ bot.on('message', async (msg) => {
            
 
     }
-
     else if(msg.text == "Is that even real?"){
 
       bot.sendMessage(msg.chat.id,  pleasure_meter_intro5).then(function(){
         
-        bot.sendPhoto(msg.chat.id,  cybergif).then(function(){
+        bot.sendVideo(msg.chat.id,  cybergif).then(function(){
           const opts = {
             reply_markup: JSON.stringify({
              one_time_keyboard:true,
@@ -870,10 +1621,9 @@ bot.on('message', async (msg) => {
 
 
     }
-
     else if(msg.text == "So high-tech!"){
 
-      bot.sendPhoto(msg.chat.id,  cybergif).then(function(){
+      bot.sendVideo(msg.chat.id,  cybergif).then(function(){
         const opts = {
           reply_markup: JSON.stringify({
            one_time_keyboard:true,
@@ -887,7 +1637,6 @@ bot.on('message', async (msg) => {
         bot.sendMessage(msg.chat.id,  cybertext1 , opts);
       }).catch();
     }
-
     else if(msg.text == "That's pretty weird 😅 ?!"){
 
       const opts = {
@@ -901,9 +1650,7 @@ bot.on('message', async (msg) => {
       };
 
       bot.sendMessage(msg.chat.id,  cybertext2 , opts);
-    }
-
-    
+    }   
     else if(msg.text == "Uhm... What 😳 ?!"){
 
       const opts = {
@@ -918,11 +1665,10 @@ bot.on('message', async (msg) => {
 
       bot.sendMessage(msg.chat.id,  cybertext3 , opts);
     }
-
     else if(msg.text == "I touched one! 😲"){
       bot.sendMessage(msg.chat.id,  cybertext4).then(function(){
 
-        bot.sendPhoto(msg.chat.id,  cybergif_feel).then(function(){
+        bot.sendVideo(msg.chat.id,  cybergif_feel).then(function(){
 
           function followup(){
             const opts = {
@@ -948,14 +1694,13 @@ bot.on('message', async (msg) => {
         }).catch();
       }).catch();
     }
-
     else if(msg.text == "✨ Energetic" || msg.text == "💋 Pleasureable" || msg.text == "🧟 Weird" || msg.text == "😩Uncomfortable"){
       bot.sendMessage(msg.chat.id,  cyberquestionresponse).then(function(){
 
         function followup(){
       
-    
-          bot.sendVideo(msg.chat.id,  cyberquestionresponsegif).then(function(){
+          var randomSoftGif = cyberquestionresponsegifs[Math.floor(Math.random() * cyberquestionresponsegifs.length)]
+          bot.sendVideo(msg.chat.id,  randomSoftGif).then(function(){
             
             StartTreatmentFlow(msg.chat.id);
 
@@ -967,7 +1712,6 @@ bot.on('message', async (msg) => {
       }).catch();
 
     }
-
     else if(msg.text == "No, I need to pee"){
 
       const opts = {
@@ -982,33 +1726,57 @@ bot.on('message', async (msg) => {
 
       bot.sendMessage(msg.chat.id, pee_jealoucy, opts);
     }
-
     ////SEND MENU
     else if(msg.text == "Ready now!" || msg.text == "Yeah"){
 
       sendMenu(msg.chat.id);
 
     }
-
-
     ////Reflection Reflect pixels and cells
     else if(isInTreatmentFlow && msg.text.toLowerCase().includes("reflect") || isInTreatmentFlow && msg.text.toLowerCase().includes("reflection")|| isInTreatmentFlow && msg.text.toLowerCase().includes("refle") || isInTreatmentFlow && msg.text.toLowerCase().includes("relfec")) {
       ExitAllTreatments();
-      StartTreatment(msg.chat.id, reflect_response, reflect_img1, reflect_subline);
       isReflecting = true;
+
+      bot.sendMessage(msg.chat.id, reflect_response).then(function(){
+        function followUp(){
+          bot.sendMessage(msg.chat.id, reflect_subline).then(
+            function(){
+              const opts = {
+                reply_markup: JSON.stringify({
+                 one_time_keyboard:true,
+            
+                  keyboard: [
+                    ["Ready when you are!"]
+                  ]
+                })
+              };
+              bot.sendMessage(msg.chat.id,  reflect1, opts);
+    
+          }).catch();
+
+        }
+        setTimeout(followUp, 1000);
+      }).catch();
+
     }
 
     ////Connection
     else if(isInTreatmentFlow && msg.text.toLowerCase().includes("connect") || isInTreatmentFlow && msg.text.toLowerCase().includes("connection")|| isInTreatmentFlow && msg.text.toLowerCase().includes("conne") || isInTreatmentFlow && msg.text.toLowerCase().includes("connecting")) {
-      ExitAllTreatments();
-      StartTreatment(msg.chat.id, connect_response, connect_img1, connect_subline);
-      isConnecting = true;
+      
+      if(!isHacking ){
+        ExitAllTreatments();   
+        StartTreatment(msg.chat.id, connect_response, connect_img1, connect_subline);
+    
+        isConnecting = true;
+      }
+     
     }
 
     ////Update
     else if(isInTreatmentFlow && msg.text.toLowerCase().includes("update") || isInTreatmentFlow && msg.text.toLowerCase().includes("updat")|| isInTreatmentFlow && msg.text.toLowerCase().includes("upda")) {
       ExitAllTreatments();
       StartTreatment(msg.chat.id, update_response, update_img1, update_subline);
+
       isUpdating = true;
     }
 
@@ -1030,7 +1798,7 @@ bot.on('message', async (msg) => {
     else if(isInTreatmentFlow && msg.text.toLowerCase().includes("activation") || isInTreatmentFlow && msg.text.toLowerCase().includes("activa")|| isInTreatmentFlow && msg.text.toLowerCase().includes("activate")) {
       ExitAllTreatments();
       StartTreatment(msg.chat.id, activate_response, activate_img1, activate_subline);
-      isActivating= true;
+      isActivating = true;
     }
     ////hack
     else if(isInTreatmentFlow && msg.text.toLowerCase().includes("hack") || isInTreatmentFlow && msg.text.toLowerCase().includes("hacking")|| isInTreatmentFlow && msg.text.toLowerCase().includes("hack")) {
@@ -1040,381 +1808,14 @@ bot.on('message', async (msg) => {
     }
 
 
-    if(isReflecting){
-
-      if(isReflecting && msg.text == "Let's start!"){
-        bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
-          function(){
-            const opts = {
-              reply_markup: JSON.stringify({
-               one_time_keyboard:true,
-          
-                keyboard: [
-                  ["Ready when you are!"]
-                ]
-              })
-            };
-            bot.sendMessage(msg.chat.id,  reflect1, opts);
-
-          }).catch();
-      }
-      else if(isReflecting && msg.text == "Ready when you are!"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["I have looked at them."]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  reflect2, opts);
-      }
-
-      else if(isReflecting && msg.text == "Ready when you are!"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["I have looked at them."]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  reflect3, opts);
-      }
-
-      
-      else if(isReflecting && msg.text == "I have looked at them."){
-        bot.sendMessage(msg.chat.id,  reflect4);
-        isReflectingState1 = true;
-      }
-
-      else if(isReflecting && isReflectingState1 && msg.text.length > 0){
-        bot.sendMessage(msg.chat.id,  reflect5);
-        isReflectingState1 = false;
-        isReflectingState2 = true;
-      }
-      else if(isReflecting && isReflectingState2 && msg.text.length > 0){
-        bot.sendMessage(msg.chat.id,  reflect6);
-        isReflectingState2 = false;
-        isReflectingState3 = true;
-      }
-
-      else if(isReflecting && isReflectingState3 && msg.text.length > 0){
-        bot.sendMessage(msg.chat.id,  reflect7);
-        isReflectingState3 = false;
-
-        endTreatmentFlow(msg.chat.id);
-        hasReflected = true;
-      }
-
-    }
-
-    if(isConnecting){
-
-      if(isConnecting && msg.text == "Let's start!"){
-        bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
-          function(){
-            const opts = {
-              reply_markup: JSON.stringify({
-               one_time_keyboard:true,
-          
-                keyboard: [
-                  ["Should I be worried? 😧"]
-                ]
-              })
-            };
-            bot.sendMessage(msg.chat.id,  connect1, opts);
-
-          }).catch();
-      }
-      else if(isConnecting && msg.text == "Should I be worried? 😧"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["I don't get it! 🥵"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  connect2, opts);
-      }
-
-      else if(isConnecting && msg.text == "I don't get it! 🥵"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Alright, let's deconstruct what it means to be a body.🥹"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  connect3, opts);
-      }
-
-      else if(isConnecting && msg.text == "Alright, let's deconstruct what it means to be a body.🥹"){
-
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["I have returned from Virtual Reality!"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  connect4, opts);
-    
-      }
-
-      else if(isConnecting && msg.text == "I have returned from Virtual Reality!"){
-
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Start Digital Pleasure Assessment"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  connect5, opts);
-    
-      }
-      else if(isConnecting && msg.text == "Start Digital Pleasure Assessment"){
-
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["All bodies are fragile."],
-              ["All bodies are imaginative."],
-              ["All bodies are convoluted."]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  connect6, opts);
-    
-      }
-
-      else if(msg.text == "All bodies are fragile." || msg.text == "All bodies are imaginative."  || msg.text == "All bodies are convoluted."){
-        bot.sendMessage(msg.chat.id,  connect7);
-        isConnectingState1 = true;
-      }
-      else if(isConnectingState1 && msg.text.length > 0){
-        
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["I wanna deconstruct some more!"],
-              ["I wanna pick up the pieces and move on."],
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  connect8, opts);
-        isConnectingState1 = false;
-
-      }
-
-      else if(msg.text == "I wanna deconstruct some more!"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["That sounds nice. 😊"],
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  connect9, opts);
-      }
-      else if(msg.text == "I wanna pick up the pieces and move on."){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["That sounds nice. 😊"],
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  connect10, opts);
-      }
-
-      else if(msg.text == "That sounds nice. 😊"){
-
-        endTreatmentFlow(msg.chat.id);
-        hasConnected = true;
-      }
-
-  
-    }
-
-    if(isUpdating){
-
-      if(isUpdating && msg.text == "Let's start!"){
-        bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
-          function(){
-            const opts = {
-              reply_markup: JSON.stringify({
-               one_time_keyboard:true,
-          
-                keyboard: [
-                  ["OMG 😱 WHAT THE HELL 😈"]
-                ]
-              })
-            };
-            bot.sendMessage(msg.chat.id,  update1, opts);
-
-          }).catch();
-      }
-      else if(isUpdating && msg.text == "OMG 😱 WHAT THE HELL 😈"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Let's get diabolic 🫣!"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  update2, opts);
-      }
-
-      else if(isUpdating && msg.text == "Let's get diabolic 🫣!"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Uff! Ready to talk to you about this 😏!"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  update3, opts);
-      }
-
-      else if(isUpdating && msg.text == "Uff! Ready to talk to you about this 😏!"){
-
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Start Digital Pleasure Assessment"]            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  update4, opts);
-    
-      }
-
-      else if(isUpdating && msg.text == "Start Digital Pleasure Assessment"){
-
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Constantly!"],
-              ["This was my first time - and I loved it"],
-              ["I would never"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  update5, opts);
-    
-      }
-
-      else if(msg.text == "I would never" || msg.text == "This was my first time - and I loved it"  || msg.text == "Constantly!"){
-        
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["Hell Yeah! Understandable, really!"],
-            ]
-          })
-        };
-        
-        bot.sendMessage(msg.chat.id,  update6, opts);
-    
-      }
-
-      
-      else if(isUpdating && msg.text == "Hell Yeah! Understandable, really!"){
-               
-        bot.sendMessage(msg.chat.id,  update7).then(function(){
-          function followUp(){
-
-            const opts = {
-              reply_markup: JSON.stringify({
-              one_time_keyboard:true,
-                keyboard: [
-                  ["done!"],
-                ]
-              })
-            };
-            bot.sendMessage(msg.chat.id,  update8, opts)
-          }
-
-          setTimeout(followUp, 300);
-        }).catch();
-    
-      }
-
-      else if(isUpdating && msg.text == "done!"){
-               
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["Okay, I'll do it!"],
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  update9, opts);
-    
-      }
-
-      else if(isUpdating && msg.text == "Okay, I'll do it!"){
-              
-        bot.sendVideo(msg.chat.id,  update_img2).then(function(){
-
-          function followUp(){
-
-            const opts = {
-              reply_markup: JSON.stringify({
-              one_time_keyboard:true,
-                keyboard: [
-                  ["done!"],
-                ]
-              })
-            };
-            bot.sendMessage(msg.chat.id,  update10, opts).then(function(){
-              function followUp(){
-                endTreatmentFlow(msg.chat.id);
-                hasUpdated = true;
-              }
-              setTimeout(followUp, 300);
-
-            }).catch();
-          }
-
-          setTimeout(followUp, 300);
 
 
-        }).catch();
-    
-      }
-    }
+ 
+ 
 
-    if(isRefreshing){
+    if(isReleasing){
 
-      if(isRefreshing && msg.text == "Let's start!"){
+      if(msg.text == "Let's start!"){
         bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
           function(){
             const opts = {
@@ -1430,7 +1831,7 @@ bot.on('message', async (msg) => {
 
           }).catch();
       }
-      else if(isRefreshing && msg.text == "Excuse me, what? 😅"){
+      else if(msg.text == "Excuse me, what? 😅"){
         const opts = {
           reply_markup: JSON.stringify({
           one_time_keyboard:true,
@@ -1443,7 +1844,7 @@ bot.on('message', async (msg) => {
         bot.sendMessage(msg.chat.id,  refresh2, opts);
       }
 
-      else if(isRefreshing && msg.text == "Let's get wet! 💦"){
+      else if(msg.text == "Let's get wet! 💦"){
         const opts = {
           reply_markup: JSON.stringify({
           one_time_keyboard:true,
@@ -1456,7 +1857,7 @@ bot.on('message', async (msg) => {
         bot.sendMessage(msg.chat.id,  refresh3, opts);
       }
 
-      else if(isRefreshing && msg.text == "Ready to dry out again.✨"){
+      else if(msg.text == "Ready to dry out again.✨"){
 
         const opts = {
           reply_markup: JSON.stringify({
@@ -1472,7 +1873,7 @@ bot.on('message', async (msg) => {
     
       }
 
-      else if(isRefreshing && msg.text == "Start Digital Pleasure Assessment"){
+      else if(msg.text == "Start Digital Pleasure Assessment"){
 
         const opts = {
           reply_markup: JSON.stringify({
@@ -1486,7 +1887,7 @@ bot.on('message', async (msg) => {
         bot.sendMessage(msg.chat.id,  refresh5, opts);
     
       }
-      else if(isRefreshing && msg.text == "I bet you do, haha 😛"){
+      else if(msg.text == "I bet you do, haha 😛"){
 
         const opts = {
           reply_markup: JSON.stringify({
@@ -1500,7 +1901,7 @@ bot.on('message', async (msg) => {
         bot.sendMessage(msg.chat.id,  refresh6, opts);
     
       }
-      else if(isRefreshing && msg.text == "Yeah, you mentioned this a few times..."){
+      else if(msg.text == "Yeah, you mentioned this a few times..."){
 
         const opts = {
           reply_markup: JSON.stringify({
@@ -1524,7 +1925,7 @@ bot.on('message', async (msg) => {
 
               function followUp(){
                 bot.sendMessage(msg.chat.id, refresh9).then(function(){
-                  isRefreshingState1 = true;
+                  isReleasingState1 = true;
                     
                 }).catch();
               }
@@ -1539,9 +1940,9 @@ bot.on('message', async (msg) => {
       }
 
       
-      else if(isRefreshing && isRefreshingState1 && msg.text.length > 0){
+      else if(isReleasingState1 && msg.text.length > 0){
 
-        isRefreshingState1 = false;
+        isReleasingState1 = false;
                
         bot.sendMessage(msg.chat.id,  refresh10).then(function(){
           function followUp(){
@@ -1555,9 +1956,9 @@ bot.on('message', async (msg) => {
       }
     }
 
-    if(isReleasing){
+    if(isRefreshing){
 
-      if(isReleasing && msg.text == "Let's start!"){
+      if(msg.text == "Let's start!"){
         bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
           function(){
             const opts = {
@@ -1573,7 +1974,7 @@ bot.on('message', async (msg) => {
 
           }).catch();
       }
-      else if(isReleasing && msg.text == "Are you sure we need this? 🥵"){
+      else if(msg.text == "Are you sure we need this? 🥵"){
         const opts = {
           reply_markup: JSON.stringify({
           one_time_keyboard:true,
@@ -1586,7 +1987,7 @@ bot.on('message', async (msg) => {
         bot.sendMessage(msg.chat.id,  release2, opts);
       }
 
-      else if(isReleasing && msg.text == "Okay... I am willing to do this for us."){
+      else if(msg.text == "Okay... I am willing to do this for us."){
         const opts = {
           reply_markup: JSON.stringify({
           one_time_keyboard:true,
@@ -1599,7 +2000,7 @@ bot.on('message', async (msg) => {
         bot.sendMessage(msg.chat.id,  release3, opts);
       }
 
-      else if(isReleasing && msg.text == "Got it! Let's relax."){
+      else if(msg.text == "Got it! Let's relax."){
 
         bot.sendMessage(msg.chat.id,  release4).then(function(){
           bot.sendAudio(msg.chat.id, release_sound).then(function(){
@@ -1622,7 +2023,7 @@ bot.on('message', async (msg) => {
     
       });
       }
-      else if(isReleasing && msg.text == "Wakey, wakey!"){
+      else if(msg.text == "Wakey, wakey!"){
         const opts = {
           reply_markup: JSON.stringify({
           one_time_keyboard:true,
@@ -1637,7 +2038,7 @@ bot.on('message', async (msg) => {
         bot.sendMessage(msg.chat.id,  release6, opts);
       }
 
-      else if(isReleasing && msg.text == "Good, i'm relaxed and my cellphone seems to be, too."){
+      else if(msg.text == "Good, i'm relaxed and my cellphone seems to be, too."){
         const opts = {
           reply_markup: JSON.stringify({
           one_time_keyboard:true,
@@ -1649,7 +2050,7 @@ bot.on('message', async (msg) => {
         };
         bot.sendMessage(msg.chat.id,  release7, opts);
       }
-      else if(isReleasing && msg.text == "Don't know, haven't been relaxed in a while, it's not so easy."){
+      else if(msg.text == "Don't know, haven't been relaxed in a while, it's not so easy."){
         const opts = {
           reply_markup: JSON.stringify({
           one_time_keyboard:true,
@@ -1661,7 +2062,7 @@ bot.on('message', async (msg) => {
         };
         bot.sendMessage(msg.chat.id,  release8, opts);
       }
-      else if(isReleasing && msg.text == "Need more of this!"){
+      else if(msg.text == "Need more of this!"){
         const opts = {
           reply_markup: JSON.stringify({
           one_time_keyboard:true,
@@ -1674,7 +2075,7 @@ bot.on('message', async (msg) => {
         bot.sendMessage(msg.chat.id,  release9, opts);
       }
 
-      else if(isReleasing && msg.text == "Thanks"){
+      else if(msg.text == "Thanks"){
         const opts = {
           reply_markup: JSON.stringify({
           one_time_keyboard:true,
@@ -1687,357 +2088,196 @@ bot.on('message', async (msg) => {
           ]
           })
         };
-        bot.sendMessage(msg.chat.id,  release10, opts);
+        bot.sendMessage(msg.chat.id,  release9, opts);
       }
 
       
     }   
     
-    if(isActivating){
+  
 
-      if(isActivating && msg.text == "Let's start!"){
-        bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
-          function(){
-            const opts = {
-              reply_markup: JSON.stringify({
-               one_time_keyboard:true,
-          
-                keyboard: [
-                  ["Wow, what's that? 😂"]
-                ]
-              })
-            };
-            bot.sendMessage(msg.chat.id,  activate1, opts);
+
+    else if(isHelping && msg.text == "Navigation of the Virtual Healing Hub"){
+      bot.sendMessage(msg.chat.id,  "Here's instructions on how to get around the Virtual Healing Hub").then(function(){
+        function followUp(){
+          bot.sendMessage(msg.chat.id,  "Use the on-screen joysticks on the device: The left one controls your movement, the right one rotates your direction / perspective").then(
+            function(){
+              function followUp(){
+                bot.sendMessage(msg.chat.id,  "Alternatively, pinch the screen (with two fingers) to move and drag the screen (with one finger) to rotate your direction / perspective.").then(
+                  function(){
+                    function followUp(){
+                      bot.sendPhoto(msg.chat.id,  "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1662805969/hotbot/IMG_1034_cgzvfm.jpg").then(
+                        function(){
+                          bot.sendPhoto(msg.chat.id,  "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1662805972/hotbot/IMG_1033_qess4i.jpg");
+                          endHelpSession(msg.chat.id);
+                        }
+                      ).catch();
+                    }
+                    setTimeout(followUp, 500);
+      
+                }).catch();
+              }
+              setTimeout(followUp, 500);
 
           }).catch();
-      }
-      else if(isActivating && msg.text == "Wow, what's that? 😂"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Got it! Let's get treated."]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  activate2, opts);
-      }
-
-      else if(isActivating && msg.text == "Got it! Let's get treated."){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Done"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  activate3, opts);
-      }
-      else if(isActivating && msg.text == "Done"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Start Digital Pleasure Assessment"],
-              ["skip"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  activate4, opts);
-      }
-
-      else if(isActivating && msg.text == "Start Digital Pleasure Assessment"  ||  isActivating && msg.text == "skip"){
-        isActivatingState1 = true;
-        bot.sendMessage(msg.chat.id,  activate5);
-      }
-      else if(isActivating && isActivatingState1 && msg.text.length > 0){
-
-        isActivatingState1 = false;
-
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["You're also very beautiful, Hot_Bot. ❤️"]
-            ]
-          })
-        };
-
-        function isNumeric(num){
-          return !isNaN(num)
         }
+        setTimeout(followUp, 500);
+      }).catch();
+    }
 
-        if(isNumeric(msg.text)){
-          let score = Integer.parseInt(msg.text);
-          if(score > 10){
-            bot.sendMessage(msg.chat.id,  activate_beautyScore1, opts)
-          } else{
-            bot.sendMessage(msg.chat.id,  activate_beautyScore10, opts);
-          }
-        } else {
-          bot.sendMessage(msg.chat.id,  activate_beautyScore10, opts);
+    else if(isHelping && msg.text == "Finding a treatment in the Center"){
+      bot.sendMessage(msg.chat.id,  "Here's instructions on how to find treatments in the center").then(function(){
+        function followUp(){
+          bot.sendPhoto(msg.chat.id,  treatment_center_map).then(function(){
+            function followUp(){
+              bot.sendMessage(msg.chat.id, "Each treatment is marked by a corresponding symbol").then(
+                function(){
+                  endHelpSession(msg.chat.id);
+                }
+              ).catch();
+            }
+            setTimeout(followUp, 500);
+          }).catch();
         }
+        setTimeout(followUp, 500);
+      }).catch();
+    }
 
-     
-      }
-      else if(isActivating && msg.text == "You're also very beautiful, Hot_Bot. ❤️"){
-        bot.sendMessage(msg.chat.id,  activate6).then(function(){
-          function followUp(){
-            bot.sendPhoto(msg.chat.id, activate_img2).then(function(){
+    else if(isHelping && msg.text == "Understanding a treatment protocol"){
+      const opts = {
+        reply_markup: JSON.stringify({
+         one_time_keyboard:true,
+         parse_mode: "html",
+         inline_keyboard: [
+          [ { text: "Virtual Healing Hub Treatment", callback_data: 301 }],
+          [ { text:"Wrinkle Beauty Treatment", callback_data: 302 }],
+          [ { text: "Relaxation Treatment", callback_data: 303 }],
+          [ { text: "Crotch Weather Treatment", callback_data: 304 }],
+          [ { text: "Curse Tablet Treatment", callback_data: 305 }],
+          [ { text: "Unstable Matter Treatment", callback_data: 306 }],
+        ]
+        })
+      };
+      bot.sendMessage(msg.chat.id,  "Which treatment would you like to get information about?", opts);
+    }   
+    else if(isHelping && msg.text == "Interacting with Hot_Bot"){
+      bot.sendMessage(msg.chat.id,  "That's so weird that you ask me how to interact with me! 😂").then(function(){
+        function followUp(){
+          bot.sendMessage(msg.chat.id,  "Here's what you need to know about what human languages I understand: To answer my questions, select one of the response options displayed at the bottom of your screen. If you do not see them there, turn them on/off by clicking on the symbol to the right of the emoji selector above your keyboard that looks like a cube with the number four - it switches your input method from typing on a keyboard to selecting from a set of options.If this symbol does not appear, that means that you can respond to me by typing into the 'Write a message...' open decription box.If you experience a bug and cannot continue the conversation with me, type /menu and you will be taken back to the treatment overview where you can select to start over with a treatment or chose to begin with a different one.").then(function(){
+            function followUp(){
+              bot.sendPhoto(msg.chat.id, "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1662810498/hotbot/bot_interface_jtuhkj.png").then(
+                function(){
+                  endHelpSession(msg.chat.id);
+                }
+              ).catch();
+            }
+            setTimeout(followUp, 100);
+          }).catch();
+        }
+        setTimeout(followUp, 1000);
+      }).catch();
+    }
+
+    else if(isHelping && msg.text == "This was helpful"){
+      bot.sendMessage(msg.chat.id,  "Great! 👍").then(function(){
+        function followUp(){
+
+          const opts = {
+            reply_markup: JSON.stringify({
+             one_time_keyboard:true,
+        
+              keyboard: [
+                ["/menu"],
+              ]
+            })
+          };
+
+          bot.sendMessage(msg.chat.id,  "Let's return to the treatment menu then, shall we? 😊", opts);
+        }
+        setTimeout(followUp, 500);
+      }).catch();
+    }
+
+    else if(isHelping && msg.text == "I need more help! 🥵"){
+      bot.sendMessage(msg.chat.id,  "This is all I can help you with :( Perform the Recenter - Gesture to request additional support by an Interface (Human Body)").then(function(){
+        function followUp(){
+
+          const opts = {
+            reply_markup: JSON.stringify({
+             one_time_keyboard:true,
+        
+              keyboard: [
+                ["/menu"],
+              ]
+            })
+          };
+
+          bot.sendMessage(msg.chat.id,  "When you're done and have received support, let's return to the treatment menu, shall we?", opts);
+        }
+        setTimeout(followUp, 2000);
+      }).catch();
+    }
+
+    else if(isExiting && msg.text == "Yes, initiate logging out."){
+
+      const opts = {
+        reply_markup: JSON.stringify({
+         one_time_keyboard:true,
+    
+          keyboard: [
+            ["Yes, thank you, I had the best time! 😍"],
+          ]
+        })
+      };
+      bot.sendMessage(msg.chat.id,  "Great! Have you been able to regenerate some of those pixels and cells?", opts);
+    }
+    else if(isExiting && msg.text == "Yes, thank you, I had the best time! 😍"){
+
+      bot.sendMessage(msg.chat.id,  "Everyone always tells me that! ❤️").then(function(){
+        function followUp(){
+          bot.sendMessage(msg.chat.id,  "Before we part ways, there's something I wanna give you:").then(function(){
+            bot.sendPhoto(msg.chat.id, imageGifts[Math.floor(Math.random() * imageGifts.length)]).then(function(){
               function followUp(){
-
                 const opts = {
                   reply_markup: JSON.stringify({
-                  one_time_keyboard:true,
+                   one_time_keyboard:true,
               
                     keyboard: [
-                      ["It's... familiar."],
-                      ["Hydration is key!"],
-                      ["Botox is my best friend."],
-                      ["My wrinkles are proof of a life full of emotions - I appreciate each of them."]
+                      ["Awww that's so thoughtful"],
                     ]
                   })
                 };
-                
-                bot.sendMessage(msg.chat.id, activate7, opts);
+                bot.sendMessage(msg.chat.id,  "This is a personal affirmation that I designed for you based on our conversation today. If you like, you can download it and use it as your phones' screensaver.");
+          
               }
-              setTimeout(followUp, 300);
-            }
-            ).catch();
-          }
-          setTimeout(followUp, 300);
-
-
-        }).catch();
-      }
-
-      else if(isActivating && msg.text == "It's... familiar."  ||  isActivating && msg.text == "Hydration is key!" || isActivating && msg.text == "Botox is my best friend."  ||  isActivating && msg.text == "My wrinkles are proof of a life full of emotions - I appreciate each of them."){
-        hasActivated = true;
-        endTreatmentFlow(msg.chat.id);
-      }
-     
-    }
-
-    if(isHacking){
-      if(ishacking && msg.text == "Let's start!"){
-        bot.sendMessage(msg.chat.id, "Okay, great! I'm excited for you!").then(
-          function(){
-            const opts = {
-              reply_markup: JSON.stringify({
-               one_time_keyboard:true,
-          
-                keyboard: [
-                  ["Sounds promising 😲"]
-                ]
-              })
-            };
-            bot.sendMessage(msg.chat.id,  hack1, opts);
-
+              setTimeout(followUp, 500);
+            }).catch();
           }).catch();
-      }
-      else if(isHacking && msg.text == "Sounds promising 😲"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-      
-            keyboard: [
-              ["Got it! Let's get treated."]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  hack2, opts);
-      }
+        }
+        setTimeout(followUp, 500);
 
-      else if(isHacking && msg.text == "Got it! Let's get treated."){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["I've left the Virtual Healing Hub"]
-            ]
-          })
-        };
-        isHackingState1 = true;
-        bot.sendMessage(msg.chat.id,  hack3, opts);
-      }
-
-      else if(isHacking && isHackingState1 && msg.text.length){
-        isHackingState1 = false;
-
-        bot.sendMessage(msg.chat.id,  hack3_glitchmsg).then(function(){
-          
-          function followUp(){
-            const opts = {
-              reply_markup: JSON.stringify({
-              one_time_keyboard:true,
-                keyboard: [
-                  ["I've left the Virtual Healing Hub"]
-                ]
-              })
-            };
-            bot.sendVideo(msg.chat.id, hack_img2, opts)
-          }
-          setTimeout(followUp, 500);
-
-        }).catch();
-      }
-
-      else if(isHacking && msg.text == "I've left the Virtual Healing Hub"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["Start Digital Pleasure Assessment"],
-              ["skip"]
-            ]
-          })
-        };
-        isHackingState1 = true;
-        bot.sendMessage(msg.chat.id,  hack4, opts);
-      }
-
-      else if(isHacking && msg.text == "Start Digital Pleasure Assessment"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["Is it possible to connect with virtual bodies?"],
-              ["I feel a lot of energies flew between us!"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  hack5, opts);
-
-      }
-
-      else if(isHacking && msg.text == "skip"){
-        bot.sendMessage(msg.chat.id,  hack6).then(
-          function(){
-            function followUp(){
-              StartTreatmentFlow(msg.chat.id);
-            }
-            setTimeout(followUp, 4000);
-          }
-        ).catch();
-
-      }
-
-      else if(isHacking && msg.text == "Is it possible to connect with virtual bodies?"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["It does, you are not real."],
-              ["Not really."]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  hack7, opts);
-
-      }
-      else if(isHacking && msg.text == "I feel a lot of energies flew between us!"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["I get attached quite easily..."],
-              ["Not really"]
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  hack8, opts);
-
-      }
-      else if(isHacking && msg.text == "It does, you are not real."){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["Yes, let's do it!"],
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  hack9, opts);
-      }
-
-      else if(isHacking && msg.text == "Not really." || isHacking && "I get attached quite easily..."){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["Yes, let's do it!"],
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  hack10, opts);
-      }
-
-
-
-      else if(isHacking && msg.text == "Not really"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["Yes, let's do it!"],
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  hack11, opts);
-      }
-
-      else if(isHacking && msg.text == "Yes, let's do it!"){
-        const opts = {
-          reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-            keyboard: [
-              ["Yes!"],
-              ["I don't know"],
-              ["No."],
-              ["I'm already a virtual body"],
-            ]
-          })
-        };
-        bot.sendMessage(msg.chat.id,  hack12, opts);
-      }
-
-      else if(isHacking && msg.text == "Yes!"){
-        isHackingState1 = true;
-        bot.sendMessage(msg.chat.id,  hack12_yes);
-      }
-      else if(isHacking && isHackingState1 && msg.text.lenght > 0){
-        isHackingState1 = false;
-        bot.sendMessage(msg.chat.id,  hack12_yes_answer).then(function(){
-          endTreatmentFlow(msg.chat.id);
-        }).catch();
-      }
-
-      else if(isHacking && msg.text == "I don't know"){
-        bot.sendMessage(msg.chat.id,  hack12_dontknow).then(function(){
-          endTreatmentFlow(msg.chat.id);
-        }).catch();
-      }
-      else if(isHacking && msg.text == "No."){
-        bot.sendMessage(msg.chat.id,  hack12_no).then(function(){
-          endTreatmentFlow(msg.chat.id);
-        }).catch();
-      }
-      else if(isHacking && msg.text == "I'm already a virtual body"){
-        bot.sendMessage(msg.chat.id,  hack12_body).then(function(){
-          endTreatmentFlow(msg.chat.id);
-        }).catch();
-      }
-    
-     
+      }).catch();
     }
 
+    else if(isExiting && msg.text == "Awww that's so thoughtful"){
+      isExiting = false;
+      bot.sendMessage(msg.chat.id,  "I'm so happy you came! It's been my digital pleasure to chat with you. Have a lovely evening <3");
+    }
 
-
+    else if(isExiting && msg.text == "No, I would like to remain logged in!"){
+      isExiting = false;
+      
+      const opts = {
+        reply_markup: JSON.stringify({
+         one_time_keyboard:true,
+    
+          keyboard: [
+            ["/menu"],
+          ]
+        })
+      };
+      bot.sendMessage(msg.chat.id,  "Great! Then let's take a look at the menu again:", opts);
+    }
 
 
 
@@ -2056,24 +2296,8 @@ bot.on('message', async (msg) => {
 
     }
 
-    else if(msg.text == "Found it!"){
 
-      const opts = {
-        reply_markup: JSON.stringify({
-         one_time_keyboard:true,
-    
-          keyboard: [
-            ["Let's start!"],
-            ["I would rather do another treatment."],
-            ["This treatment is running at full capacity already."]
-
-          ]
-        })
-      };
-      bot.sendMessage(msg.chat.id,  wanna_start_treatment, opts);
-
-    }
-    else if(msg.text == "I would rather do another treatment."){
+    else if(msg.text == "I would rather do another treatment."  || msg.text == "This treatment is running at full capacity already."){
 
       const opts = {
         reply_markup: JSON.stringify({
@@ -2089,7 +2313,7 @@ bot.on('message', async (msg) => {
 
     }
 
-    else if(msg.text == "Select another treatment" || msg.text == "This treatment is running at full capacity already."){
+    else if(msg.text == "Select another treatment"){
 
       sendMenu(msg.chat.id);
 
@@ -2097,7 +2321,7 @@ bot.on('message', async (msg) => {
 
     else if(msg.text == "Take a break"){
 
-      bot.sendMessage(id,  go_on_break2).then(function(){
+      bot.sendMessage(msg.chat.id,  go_on_break2).then(function(){
     
         isOnBreak = true;
     
@@ -2125,10 +2349,41 @@ bot.on('message', async (msg) => {
           })
         };
 
-        bot.sendPhoto(msg.chat.id, welcome_gif, opts);
+        bot.sendVideo(msg.chat.id, welcome_gif, opts);
         
   
       }).catch();
+    }
+
+    // else if(!hasStarted && msg.text.length > 0 && !msg.text.includes("start") ){ 
+    //   const opts = {
+    //     reply_markup: JSON.stringify({
+    //      one_time_keyboard:true,
+    
+    //       keyboard: [
+    //         ["/start"],
+      
+    //       ]
+    //     })
+    //   };
+    //   bot.sendMessage(msg.chat.id, "sorry I dont think I am ready for you yet! You should start me up!", opts)
+    // }
+    if(msg.text == "Found it!"){
+
+      const opts = {
+        reply_markup: JSON.stringify({
+         one_time_keyboard:true,
+    
+          keyboard: [
+            ["Let's start!"],
+            ["I would rather do another treatment."],
+            ["This treatment is running at full capacity already."]
+
+          ]
+        })
+      };
+      bot.sendMessage(msg.chat.id,  wanna_start_treatment, opts);
+
     }
 
 
@@ -2139,7 +2394,7 @@ function sendMenu(id){
     id,
     "typing"
   );
-
+  ExitAllTreatments();
   const opts = {
     reply_markup: JSON.stringify({
      one_time_keyboard:true,
@@ -2246,55 +2501,78 @@ function ExitAllTreatments(){
   isConnecting = false;
   isHacking = false;
   isReflecting = false;
-  isHacking = false;
+  isRefreshing = false;
   isReleasing = false;
   isUpdating = false;
+}
+
+function endHelpSession(id){
+  const opts = {
+    reply_markup: JSON.stringify({
+      one_time_keyboard:true,
+      keyboard: [
+        ['This was helpful'],
+        ['I need more help! 🥵'],
+      ]
+    })
+  };
+  bot.sendMessage(id,"Was this helpful?", opts);
+
 }
 
 
 
 
-
+bot.on("photo", msg => {
+  bot.sendMessage(msg.chat.id,"thank you for that media " + msg.chat.first_name).then(function(){
+    bot.sendMessage(msg.chat.id,"unfortunately i dont know what to do with that kind of content yet").then(function(){
+      bot.sendPhoto(msg.chat.id, bot_selfie, {caption: "felt cute tho"});
+    }).catch();
+  }).catch();
+});
 
 
 bot.onText(/\/exit/, (msg) => {
-  if (isOnMission === true) {
-    isOnMission = false;
-    bot.sendPhoto(msg.chat.id, "https://res.cloudinary.com/www-houseofkilling-com/image/upload/c_thumb,w_200,g_face/v1632228041/aawkwaa/goodjob_qfim9b.png", {caption: "good job ༼ つ ◕_◕ ༽つ (⊙_⊙;)!"}).then(function(){
-      bot.sendMessage(msg.chat.id,"sooo..... did you /fail or did you /succeed in your mission?");
-    }).catch()
-  
-    
-  } else {
-    const opts = {
-      reply_markup: JSON.stringify({
-        one_time_keyboard:true,
-        keyboard: [
-          ['/mission'],
-          ['I dont wanna play today 😬'],
-        ]
-      })
-    };
-    bot.sendMessage(msg.chat.id,"wait are you on a mission? I must have misunderstood something ¯\_(ツ)_/¯- will u ask for a new /mission plz", opts);
-  }
+  isExiting = true;
+  const opts = {
+    reply_markup: JSON.stringify({
+      one_time_keyboard:true,
+      keyboard: [
+        ['Yes, initiate logging out.'],
+        ['No, I would like to remain logged in!'],
+      ]
+    })
+  };
+  bot.sendMessage(msg.chat.id,"Are you sure you want to end your treatments and leave the center? 😭", opts);
 
 });
 
 
 
 bot.onText(/\/help/, (msg) => {
-
-  if(isInTreatmentFlow){
-
-  } else{
-
-  }
-  bot.sendMessage(msg.chat.id, "Are you confused " + msg.chat.first_name + "?");
   bot.sendChatAction(
     msg.chat.id,
     "typing"
   )
-  bot.sendMessage(msg.chat.id, "i usually just go with the flow. Follow instructions and keep it simple: start by typing /start and see where we go! ");
+  if(isInTreatmentFlow){
+    isHelping = true;
+    const opts = {
+      reply_markup: JSON.stringify({
+        one_time_keyboard:true,
+        keyboard: [
+          ['Navigation of the Virtual Healing Hub'],
+          ['Finding a treatment in the Center'],
+          ["Understanding a treatment protocol"],
+          ["Interacting with Hot_Bot"]
+        ]
+      })
+    };
+    bot.sendMessage(msg.chat.id, "What do you need help with?", opts);
+
+  } else{
+    bot.sendMessage(msg.chat.id, "Error: The /help command will become available once you have selected your first treatment inside the Digital Pleasure Center");
+  }
+
 
 });
 
