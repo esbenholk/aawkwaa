@@ -52,7 +52,7 @@ var beforewestart_done = "Thank you, that’s it! You’re good to go! Do you fe
 
 
 var onboarding1 = "To generate digital pleasure in the center, it is necessary for you to become part of the center infrastructure, yourself. This happens through a Face-Scan. Your biometrical data will be documented and made accessible to our tech organism. It’s as easy as taking a selfie and it won’t hurt. ✌🏼 This will help the tech and me to understand your body better.";
-var bot_selfie = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var bot_selfie = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223382/hotbot/assets_interface_hotbotgreen_loiy2r.png";
 
 var onboarding2 = "That's me! Always good to match a NoFace to the name. Now I wanna see yours! In order to get your Face scanned, please enter the room and wait until it’s your turn.";
 var begin_facescan = "Great. How busy is it right now? Do you need to wait to get your Face-Scan taken?";
@@ -94,7 +94,6 @@ var cyberquestion = "How was it?";
 var cyberquestionresponse = "Every feeling that an Interface connection triggers is valid!";
 var cyberquestionresponsegifs = ["https://media.giphy.com/media/l3mZdY5jeNFogm3ok/giphy.gif", "https://media.giphy.com/media/2kOenxkXGeVwcF6Y87/giphy.gif"];
 
-var imageGifts = ["https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png", "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png", "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png", "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png"]
 
 var treatment_opening = "Are you ready to start a treatment?";
 var pee_jealoucy = "I'm so jealous that you can do such cool things with you body! I'll wait for you. Let me know when you're ready!";
@@ -119,7 +118,6 @@ var isReflectingState2 = false;
 var isReflectingState3 = false;
 var hasReflected = false;
 var reflect_subline = "Reflecting power dynamics and barriers.";
-var reflect_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
 var reflect_response = "Smart choice ❤️";
 
 var reflect1 = "Loading Reflection";
@@ -137,7 +135,7 @@ var isConnectingState2 = false;
 var isConnectingState3 = false;
 var hasConnected = false;
 var connect_subline = "Connecting pixels and cells happens at the Virtual Pleasure Hub.";
-var connect_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var connect_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223388/hotbot/Symbole_Stationen5_qknqzw.png";
 var connect_response = "Great choice! ❤️";
 
 var connect1 = "Loading Unstable Matter Treatment";
@@ -158,7 +156,7 @@ var isUpdatingState2 = false;
 var isUpdatingState3 = false;
 var hasUpdated = false;
 var update_subline =  "Updating pixels and cells happens at the Wrinkle Beauty Treatment.";
-var update_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var update_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223387/hotbot/Symbole_Stationen4_enxdr3.png";
 var update_response = "Excellent choice! ❤️";
 
 var update1 = "Loading Curse Tablet Treatment";
@@ -180,7 +178,7 @@ var isRefreshingState2 = false;
 var isRefreshingState3 = false;
 var hasRefreshed = false;
 var refresh_subline = "Refreshing pixels and cells happens at the Relaxation Treatment.";
-var refresh_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var refresh_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223385/hotbot/Symbole_Stationen2_gmjfov.png";
 var refresh_response = "Amazing choice ❤️";
 
 var refresh1 = "Loading Crotch Wheater Treatment.";
@@ -203,7 +201,7 @@ var isReleasingState2 = false;
 var isReleasingState3 = false;
 var hasReleased = false;
 var release_subline = "Releasing pixels and cells happens at the Crotch Weather Treatment.";
-var release_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var release_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223384/hotbot/Symbole_Stationen6_rpfqq5.png";
 var release_response = "Good choice! ❤️";
 
 var release1 = "Loading Relaxation. It's a couple's therapy – for your phone and you!";
@@ -230,7 +228,7 @@ var isActivatingState2 = false;
 var isActivatingState3 = false;
 var hasActivated = false;
 var activate_subline = "Activating pixels and cells happens at the Curse Tablet Treatment.";
-var activate_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var activate_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223384/hotbot/Symbole_Stationen7_yxz0fk.png";
 var activate_response = "Gorgeous choice! ❤️";
 
 var activate1 = "Loading Wrinkle Beauty Treatment.";
@@ -253,7 +251,7 @@ var isHackingState2 = false;
 var isHackingState3 = false;
 var hasHacked = false;
 var hack_subline = "Hacking pixels and cells happens at Unstable Matter Treatment.";
-var hack_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var hack_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223386/hotbot/Symbole_Stationen3_n04zer.png";
 var hack_response = "Nice choice ❤️";
 
 var hack1 = "Loading Virtual Healing Hub Treatment.";
@@ -2236,7 +2234,10 @@ bot.on('message', async (msg) => {
       bot.sendMessage(msg.chat.id,  "Everyone always tells me that! ❤️").then(function(){
         function followUp(){
           bot.sendMessage(msg.chat.id,  "Before we part ways, there's something I wanna give you:").then(function(){
-            bot.sendPhoto(msg.chat.id, imageGifts[Math.floor(Math.random() * imageGifts.length)]).then(function(){
+
+            // bot.sendVideo(msg.chat.id, imageGifts[Math.floor(Math.random() * imageGifts.length)]).then(function(){
+            bot.sendPhoto(msg.chat.id, "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223407/hotbot/Interface_pleasureflowsbothways_aukpcy.jpg").then(function(){
+
               function followUp(){
                 const opts = {
                   reply_markup: JSON.stringify({
@@ -2247,7 +2248,7 @@ bot.on('message', async (msg) => {
                     ]
                   })
                 };
-                bot.sendMessage(msg.chat.id,  "This is a personal affirmation that I designed for you based on our conversation today. If you like, you can download it and use it as your phones' screensaver.");
+                bot.sendMessage(msg.chat.id,  "Here's a screensaver  that I designed for you and your phone - so that you don't forget about me! Hope you like it. 💕", opts);
           
               }
               setTimeout(followUp, 500);
