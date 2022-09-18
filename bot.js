@@ -38,14 +38,14 @@ var isExiting = false;
 var hasStarted = false;
 
 var welcome_message1 = "I’m glad you are here. My name is Hot_Bot. I’m part of the digital pleasure center infrastructure. My job as an interface is to guide you through the center and make sure you have a great time! “Job” makes it sound so professional. Let me rephrase: It’s my digital PLEASURE to be your conversation partner while you’re here! The environment you’re about to enter, my home, has a lot to offer and I’m really excited to show you around.";
-var welcome_video_url = "https://res.cloudinary.com/www-houseofkilling-com/video/upload/v1631365794/aawkwaa/embarressed_dfaxck.mp4";
+var welcome_video_url = "https://res.cloudinary.com/dtvtkuvbv/video/upload/v1663360516/Videos/video1_AdobeExpress_1_s3lazf.mp4";
 var welcome_message2 =  "Before we start producing pleasure together, there's a couple of things I wanna talk to you about. 🤓";
 var beforewestart1 = "Before you enter the room I would like to point out a few points to you cute little human. We have a Code of Conduct in our center, a few policies to ensure that we can all have a good time. I’ll introduce it now and ask you for your consent. To agree, please select “Confirm” at the bottom of your screen.";
 var beforewestart2 = "Lovely, let’s get started! First of all, a general remark: For you and the tech to experience digital pleasure, it is important that you treat all technical devices with care. This center is a situated organism, consisting of software and hardware. As soon as you enter, you become part of the pleasure flow. 💦";
 var beforewestart3 = "Pleasure flows between you and all tech in this space. The tech-positive treatments offered here consider technology as a way to create joy, a means of expressing creativity, an opportunity to play around and an invitation to use it for queer, emancipatory and revolutionary causes. 🥂";
 var beforewestart4 = "Tech deserves to shine! We have a strikt Pro-Phone-Policy here! 📲";
 var beforewestart5 = "Please be gentle with yourself. If you are overwhelmed or need help, we offer assistance. I’ll introduce you to our Recenter Gesture, a sign understood by all interfaces in this space. If you perform this gesture, you will be offered support."
-var beforewestart_image_url = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var beforewestart_image_url = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663511367/hotbot/Recenter_Gesture_cnpbtf.jpg";
 var beforewestart6 = "Try it out and feel the feels! Confirm when you feel confident with the gesture.";
 var beforewestart7 = "Engaging in all treatments will take approximately 100 minutes. But there’s no need to do them all and you can select the pace at which you want to explore the space. 😇 You can exit the digital pleasure center experience at any time. If you like to leave, just send me a message with “/exit” to start the log out process. If you need support, just send me a message with /help";
 var beforewestart_done = "Thank you, that’s it! You’re good to go! Do you feel ready?";
@@ -77,7 +77,7 @@ var bad_feeling_response2 = "Happy you're on board, sweety!"
 var welcome_gif2 = "https://media.giphy.com/media/CjmvTCZf2U3p09Cn0h/giphy.gif";
 
 var pleasure_meter_intro1 = "Can you see the big screen on the tech tree of life? That’s the heart of the center, the ✨ Pleasure-Meter✨. 😳";
-var pleasure_meter_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var pleasure_meter_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663511528/hotbot/Bildschirmfoto_2022-09-16_um_19.30.03_tay4uf.png";
 var pleasure_meter_intro2 = "I know, right? We've been putting a lot of energy into this!";
 var pleasure_meter_img2 = "https://media.giphy.com/media/inVvfuomoD31K/giphy.gif";
 
@@ -134,13 +134,14 @@ var isConnectingState1 = false;
 var isConnectingState2 = false;
 var isConnectingState3 = false;
 var hasConnected = false;
-var connect_subline = "Connecting pixels and cells happens at the Virtual Pleasure Hub.";
+var connect_subline = "Connecting pixels and cells happens at the Virtual Healing Hub.";
 var connect_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223388/hotbot/Symbole_Stationen5_qknqzw.png";
 var connect_response = "Great choice! ❤️";
 
 var connect1 = "Loading Unstable Matter Treatment";
 var connect2 = "Only if you think your body is stable! 😅";
-var connect3 = "UPDATE THIS!!!! Treatment Explanation:  Unstable Matter";
+var connect3 = "😇 Welcome to UNSTABLE MATTER Treatment! LOCATION & TECH – At the back of the Center – VR headset– Headphones. WHAT TO EXPECT✨ Hack pixels and cells This treatment aims to deconstruct what it means to be a (digital) body. HOW TO PREPARE: Grab one of the VR headsets. Sit down on one of the stools. Put the VR headset on and adjust the strap to ensure a comfortable fit. Now, put on the headphones. Look around you and explore Virtual Reality in 360°. Advice: If you feel sick in Virtual Reality, try to focus on non-moving items or temporarily take the headset off and take a deep breath. DURATION: Approximately 10 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... You’ve watched the videoloop one time.💋Pleasure flows both ways";
+
 var connect4 = "Enjoy the treatment and let me know as soon as you've finished!";
 var connect5 = "I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the ✨Pleasure-Meter✨.";
 var connect6 = "I've missed you! 😍 What did you learn while you were there?";
@@ -160,7 +161,9 @@ var update_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/uploa
 var update_response = "Excellent choice! ❤️";
 
 var update1 = "Loading Curse Tablet Treatment";
-var update2 = "UPDATE THIS!!!! Treatment Explanation; Curse Tablet Treatment";
+var update2 = "😇 Welcome to CURSE TABLET Treatment! LOCATION & TECH – Front of the Center, near the entrance/exit – Screen, iPad, Headphones, Microfon. WHAT TO EXPECT✨ Activate pixels and cells. You can experience the feral possibilities you can achieve with voice and tech, even with the quietest of your voice. HOW TO PREPARE: Find a set at the CURSE TABLET table. You can do this treatment alone or together with someone else. Put on the headphones available on the table. Position one of the microphones in your direction. You will need it later on in the treatment. Explore the contents on the screen by dragging over the interface with the mouse. Once you have familiarized yourself with the setup, watch the video “THE DEVIL’S WHISPER”, which will guide you through the session. DURATION: Approximately 10 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... You’ve unleashed your full diabolical self.💋Pleasure flows both ways";
+
+
 var update3 = "Enjoy the treatment and let me know as soon as you've finished!";
 var update4 = "I care about you! I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the✨Pleasure-Meter✨.";
 var update5 = "I see you can't wait to share your thoughts with me! 😍 Okay, I'd love to know: Have you ever cursed somebody or something?";
@@ -182,7 +185,8 @@ var refresh_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/uplo
 var refresh_response = "Amazing choice ❤️";
 
 var refresh1 = "Loading Crotch Wheater Treatment.";
-var refresh2 = "UPDATE THIS!!!! Treatment Explanation: Crotch Wheater Treatment.";
+var refresh2 = "😇 Welcome to CROTCH WEATHER STATION! LOCATION & TECH – Inside the tent at the back of the Center – Screen – Your own smartphone – Your own Headphones. WHAT TO EXPECT: ✨ Release pixels and cells. This treatment will dissolve, expand and connect you with a world that’s built on the liquidity that carries emotions through your body. HOW TO PREPARE: Find a comfortable position inside the tent! Click the following link which will open the Crotch Weather Treatment in your browser: https://dotwet.xyz/crotchstation. Advice: Telegram may open the link within its app, select “Open in browser” to ensure full functionality (3) Listen from 1, 2 and/or 3 with your headphones (4) Ring the bell for when you’re feeling extra spicy (emoji)! DURATION: Approximately 10 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... You’ve listened to the audio files and flowed through the virtual crotch weather. You are now eligible to become a participantie - join the telegram group and build your custom crotch sensor that generates your personal crotch worlds: https://t.me/+2X6ROvuQJ_JiOGQy 💋Pleasure flows both ways";
+
 var refresh3 = "Enjoy the treatment and let me know as soon as you've finished!";
 var refresh4 = "I care about you! I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the✨Pleasure-Meter✨.";
 var refresh5 = "It was so interesting to feel your body excitement! Full disclosure: I also feel a bit digitally horny now. 🥵💋";
@@ -206,7 +210,9 @@ var release_response = "Good choice! ❤️";
 
 var release1 = "Loading Relaxation. It's a couple's therapy – for your phone and you!";
 var release2 = "Trust me! I've been on your phone for a while now and it shared quite a few stories with me... 😅";
-var release3 = "UPDSTE THIS!!!! Treatment Explanation, Relaxation.";
+var release3 = "😇 Welcome to RELAXATION Treatment! LOCATION & TECH: – Beneath the platform – For your phone: the smartphone care altar – For yourself: headphones connected to a music player – A facemask. WHAT TO EXPECT: ✨ Refresh pixels and cells. This treatment aims to recharge you and your tech with new energy. HOW TO PREPARE: Find an available smartphone care altar for your phone and a comfortable spot on the mattresses, a pair of headphones and one facemask for yourself. Take care of your tech. Place your phone on the smartphone care altar exactly like this: Firstly, if you’re using any kind of case: undress your phone gently. Afterwards, place it on the marble altar. Start the phone relaxation song that I will send in a bit. Put the crystal pyramid on your phone for optional clearance and enlightenment. Take care of yourself. Prepare your face by giving it a little message. Take one of the facemasks and strap it over your head. Lay down in a comfortable position. Put on headphone and start the music player. Your relaxation session begins. Please note: Close your eyes while wearing the mask. Warning: Do not use the mask if you’re pregnant, are allergic to light or suffer from thyroid diseases or epilepsy. DURATION: Approximately 10 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... Your tech and you feel fresh and relaxed.💋Pleasure flows both ways";
+
+ 
 var release4 = "This feels sooooo good. I'm gonna take a power nap. Please put on this song for me to relax. – you can have your phone on mute, I can hear it anyways.";
 var release_sound = "https://res.cloudinary.com/dtvtkuvbv/video/upload/v1662731220/Sound/Phone_Relaxation_Sound_gtycwb.mp3";
 var release5 = "Wake me up when you are done!";
@@ -232,7 +238,9 @@ var activate_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upl
 var activate_response = "Gorgeous choice! ❤️";
 
 var activate1 = "Loading Wrinkle Beauty Treatment.";
-var activate2 = "UPDSTE THIS!!!! Loading Wrinkle Beauty Treatment. Treatment Explanation";
+var activate2 = "😇 Welcome to WRINKLE BEAUTY TREATMENT. LOCATION & TECH: – In a corner of the center, behind the Login station – iPad with Apple-Pencil, Headphones – If you’re unable to get on the treatment chair, make the recenter gesture and an Interface will assist you. WHAT TO EXPECT: ✨ Update pixels and cells. You will assist a digital naked cat to regain their sense of empowerment through a reversed beauty treatment. HOW TO PREPARE: Get on the treatment chair. Put on the headphones. Start the video on the iPad. Once you hear satisfied purring, grab the Apple Pencil and start the reversed beauty treatment in the browser of the iPad. You can zoom in/out, turn the digital naked cat around and change pressure of the brush. Assist kitty-kat to become wrinkly again by drawing lines on their body. Feel free to play around. DURATION: Approximately 10 min - Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... ...the digital naked cat is wrinkly again and you feel updated and relaxed to continue exploring the digital pleasure center. ADDITIONAL INFO: SculptGL is a small open source sculpting application powered by JavaScript and webGL. Made by Stephane ginier.💋Pleasure flows both ways";
+
+
 var activate3 = "Enjoy the treatment and let me know as soon as you've finished!";
 var activate4 = "I care about you! I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the ✨Pleasure-Meter✨.";
 var activate5 = "Beauty comes from the inside - if you're a bot! 😂 But you're not haha! How beautiful do you feel right now on a scale of 1-10?";
@@ -255,7 +263,9 @@ var hack_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/
 var hack_response = "Nice choice ❤️";
 
 var hack1 = "Loading Virtual Healing Hub Treatment.";
-var hack2 = "UPDSTE THIS!!!! Treatment Explanation Loading Virtual Healing Hub Treatment.";
+var hack2 = "😇 Welcome to VIRTUAL HEALING HUB. LOCATION & TECH: – Platform (upstairs), iPad, Headphones – If you’re unable to get on the platform make the recenter gesture and an Interface will assist you. WHAT TO EXPECT: ✨ Connect pixels and cells. In this treatment, you will be sent on quests that aim to connect you with digital bodies. It’s your goal to heal six digital bodies (they will let you know how to). HOW TO PREPARE: Find a comfortable position on the platform. Grab one of the available iPads. Put on the headphones. Press “Refresh” in the browser to arrive at the beginning (=spawn point). At your spawn point, you will find an explanatory video with all further instructions. Make sure the mic inside Mozilla Hubs is turned off to avoid audio feedback. DURATION: Approximately 15 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... You’ve connected with six digital bodies. 💋Pleasure flows both ways";
+
+
 var hack3 = "Enjoy the treatment!";
 var hack3_glitchmsg = "Glitch Mode activated!";
 var hack_img2 = "https://media.giphy.com/media/h8sVibFE0NChi/giphy.gif";
@@ -387,7 +397,7 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
       sendMessageWithSingleInlineKeyboard(5, msg.chat.id, beforewestart6, confirm_text);
     }
   
-    setTimeout(followup, 1000);//wait 2 seconds
+    setTimeout(followup, 2000);//wait 2 seconds
   }
   if(stage == 5){
     sendMessageWithSingleInlineKeyboard(6, msg.chat.id, beforewestart7, confirm_text);
