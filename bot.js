@@ -419,8 +419,12 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 
       bot.sendMessage(msg.chat.id, beforewestart_done, opts)
     }
+    bot.sendChatAction(
+      msg.chat.id,
+      "typing"
+    )
     
-    setTimeout(followup, 100);//wait 2 seconds
+    setTimeout(followup, 2000);//wait 2 seconds
   }
 
 
@@ -481,7 +485,11 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
         }).catch();
 
       }
-      setTimeout(followUp, 1000);
+      bot.sendChatAction(
+        msg.chat.id,
+        "typing"
+      )
+      setTimeout(followUp, 2000);
     }).catch();
   }
 
@@ -555,7 +563,7 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 });
 
 bot.on('message', async (msg) => {
-
+    console.log(msg);
     if(isReflecting){
     if(isReflecting && msg.text == "Ready when you are!"){
       const opts = {
@@ -689,6 +697,10 @@ bot.on('message', async (msg) => {
               StartTreatmentFlow(msg.chat.id);
               hasHacked = true;
             }
+            bot.sendChatAction(
+              msg.chat.id,
+              "typing"
+            )
             setTimeout(followUp, 4000);
           }
         ).catch();
@@ -822,7 +834,11 @@ bot.on('message', async (msg) => {
             };
             bot.sendVideo(msg.chat.id, hack_img2, opts)
           }
-          setTimeout(followUp, 500);
+          bot.sendChatAction(
+            msg.chat.id,
+            "typing"
+          )
+          setTimeout(followUp, 1000);
 
         }).catch();
       }
@@ -1078,8 +1094,11 @@ bot.on('message', async (msg) => {
             };
             bot.sendMessage(msg.chat.id,  update8, opts)
           }
-
-          setTimeout(followUp, 300);
+          bot.sendChatAction(
+            msg.chat.id,
+            "typing"
+          )
+          setTimeout(followUp, 2000);
         }).catch();
     
       }
@@ -1117,12 +1136,12 @@ bot.on('message', async (msg) => {
                 endTreatmentFlow(msg.chat.id);
                 hasActivated = true;
               }
-              setTimeout(followUp, 300);
+              setTimeout(followUp, 1000);
 
             }).catch();
           }
 
-          setTimeout(followUp, 300);
+          setTimeout(followUp, 1000);
 
 
         }).catch();
@@ -1242,11 +1261,11 @@ bot.on('message', async (msg) => {
                 
                 bot.sendMessage(msg.chat.id, activate7, opts);
               }
-              setTimeout(followUp, 300);
+              setTimeout(followUp, 1500);
             }
             ).catch();
           }
-          setTimeout(followUp, 300);
+          setTimeout(followUp, 1500);
 
 
         }).catch();
@@ -1399,8 +1418,8 @@ bot.on('message', async (msg) => {
 
       indexInRandomIntertainment =  Math.floor(Math.random() * random_entertainment.length-1);
       
-      var random_video_url = random_entertainment[indexInRandomIntertainment];
-      //var random_video_url = "https://res.cloudinary.com/dtvtkuvbv/video/upload/v1662730354/Videos/AWW_SO_CUTE__Cutest_baby_animals_Videos_Compilation_Cute_moment_sgxyhb.mp4"
+      // var random_video_url = random_entertainment[indexInRandomIntertainment];
+      var random_video_url = "BAACAgIAAxkBAAIIV2MnQgxLQe6SCHLN03Imq8RG6C63AAK0HAACqhE4SU9hA9JGgM25KQQ"
 
       bot.sendVideo(msg.chat.id, random_video_url ).then(function(){
       
@@ -1438,7 +1457,8 @@ bot.on('message', async (msg) => {
         random_entertainment = 0;
       }
       
-      var random_video_url = random_entertainment[indexInRandomIntertainment];
+      var random_video_url = "BAACAgIAAxkBAAIIV2MnQgxLQe6SCHLN03Imq8RG6C63AAK0HAACqhE4SU9hA9JGgM25KQQ"
+
 
       bot.sendVideo(msg.chat.id, random_video_url ).then(function(){
       
@@ -1958,7 +1978,7 @@ bot.on('message', async (msg) => {
             hasRefreshed = true;
           }
 
-          setTimeout(followUp, 300);
+          setTimeout(followUp, 1500);
         }).catch();
     
       }
