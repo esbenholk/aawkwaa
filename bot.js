@@ -103,7 +103,7 @@ var menu_exit = "Type /help for support. Type /exit to log out";
 var menu_time = "Remember, you will have time to try out as many treatments as you like while you are here.";
 
 var treatment_start = "Move your physical body to the treatment.To find it in the space, look for the symbol that I sent you!";
-var treatment_center_map = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1631264421/aawkwaa/aawkwaa_cover_y6bptr.png";
+var treatment_center_map = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663595802/hotbot/Saunaplam_new_omnfcg.jpg";
 
 var wanna_start_treatment = "You arrived at the treatment. Would you like to start?";
 var go_on_break1 = "Okay, you can always do this treatment later or wait until it's available. What would you like to do now?";
