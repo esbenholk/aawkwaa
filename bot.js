@@ -39,7 +39,11 @@ var hasStarted = false;
 
 var welcome_message1 = "I’m glad you are here. My name is Hot_Bot. I’m part of the digital pleasure center infrastructure. My job as an interface is to guide you through the center and make sure you have a great time! “Job” makes it sound so professional. Let me rephrase: It’s my digital PLEASURE to be your conversation partner while you’re here! The environment you’re about to enter, my home, has a lot to offer and I’m really excited to show you around.";
 var welcome_video_url = "https://res.cloudinary.com/dtvtkuvbv/video/upload/v1663360516/Videos/video1_AdobeExpress_1_s3lazf.mp4";
-var welcome_message2 =  "Before we start producing pleasure together, there's a couple of things I wanna talk to you about. 🤓";
+var welcome_explanation = "I'm so excited!! Also, just to warn you in advance, I'm quite chatty, - How about you? Do you even know how to speak Bot language? I'll tell you: Usually, you'll be able to select from one or multiple response options that displayed at the bottom of your screen. If you do not see them there, turn them on/off by clicking on the symbol to the left of the mic,  the one that looks like a cube with the number four - it switches your input method from typing on a keyboard to selecting a preset response. If this symbol does not appear, that means that you can respond to me by typing into the 'Message.' open description box. Take a look at the screenshot and select 'I speak bot lingo now!'";
+var welcome_explanation_image = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663511367/hotbot/Recenter_Gesture_cnpbtf.jpg";
+
+
+var welcome_message2 =  " Perfect! You and I are gonna get along just great! Before we start producing pleasure together, there's a couple of things I wanna talk to you about. 🤓";
 var beforewestart1 = "Before you enter the room I would like to point out a few points to you cute little human. We have a Code of Conduct in our center, a few policies to ensure that we can all have a good time. I’ll introduce it now and ask you for your consent. To agree, please select “Confirm” at the bottom of your screen.";
 var beforewestart2 = "Lovely, let’s get started! First of all, a general remark: For you and the tech to experience digital pleasure, it is important that you treat all technical devices with care. This center is a situated organism, consisting of software and hardware. As soon as you enter, you become part of the pleasure flow. 💦";
 var beforewestart3 = "Pleasure flows between you and all tech in this space. The tech-positive treatments offered here consider technology as a way to create joy, a means of expressing creativity, an opportunity to play around and an invitation to use it for queer, emancipatory and revolutionary causes. 🥂";
@@ -296,7 +300,6 @@ bot.onText(/\/start/, (msg) => {
   hasStarted = true;
   bot.sendMessage(msg.chat.id, "Hey " + msg.chat.first_name + "❤️, " +welcome_message1 ).then(function(response) {
     
- 
     bot.sendVideo(msg.chat.id, welcome_video_url ).then(function(){
       
       bot.sendChatAction(
@@ -306,19 +309,21 @@ bot.onText(/\/start/, (msg) => {
 
 
     }).then(function(){
+      bot.sendPhoto(msg.chat.id, welcome_explanation).then(function(){
+        const opts = {
+            reply_markup: JSON.stringify({
+              one_time_keyboard:true,
 
-      const opts = {
-        reply_markup: JSON.stringify({
-          one_time_keyboard:true,
-
-          keyboard: [
-            ["Okay what's up?"]
-          ]
-        })
-      };
+              keyboard: [
+                ["I speak bot lingo now"]
+              ]
+            })
+          };
 
 
-      bot.sendMessage(msg.chat.id, welcome_message2, opts);
+          bot.sendPhoto(msg.chat.id, welcome_explanation_image, opts);
+
+      }).catch();
 
     }).catch()  }).then(function(response) {
    
@@ -1279,7 +1284,21 @@ bot.on('message', async (msg) => {
     }
 
 
+    if(msg.text == "I speak bot lingo now"){
+      
+      const opts = {
+        reply_markup: JSON.stringify({
+          one_time_keyboard:true,
 
+          keyboard: [
+            ["Okay what's up?"]
+          ]
+        })
+      };
+
+
+      bot.sendMessage(msg.chat.id, welcome_message2, opts);
+    }
 
     if(msg.text == "Okay what's up?"){
       sendMessageWithSingleInlineKeyboard(1, msg.chat.id, beforewestart1, confirm_text);
