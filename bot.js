@@ -309,7 +309,7 @@ bot.onText(/\/start/, (msg) => {
 
 
     }).then(function(){
-      bot.sendPhoto(msg.chat.id, welcome_explanation).then(function(){
+      bot.sendMessage(msg.chat.id, welcome_explanation).then(function(){
         const opts = {
             reply_markup: JSON.stringify({
               one_time_keyboard:true,
@@ -321,7 +321,7 @@ bot.onText(/\/start/, (msg) => {
           };
 
 
-          bot.sendPhoto(msg.chat.id, welcome_explanation_image, opts);
+          bot.sendPhoto(msg.chat.id, bot_selfie, opts);
 
       }).catch();
 
