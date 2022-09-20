@@ -40,7 +40,7 @@ var hasStarted = false;
 var welcome_message1 = "I’m glad you are here. My name is Hot_Bot. I’m part of the digital pleasure center infrastructure. My job as an interface is to guide you through the center and make sure you have a great time! “Job” makes it sound so professional. Let me rephrase: It’s my digital PLEASURE to be your conversation partner while you’re here! The environment you’re about to enter, my home, has a lot to offer and I’m really excited to show you around.";
 var welcome_video_url = "https://res.cloudinary.com/dtvtkuvbv/video/upload/v1663360516/Videos/video1_AdobeExpress_1_s3lazf.mp4";
 var welcome_explanation = "I'm so excited!! Also, just to warn you in advance, I'm quite chatty, - How about you? Do you even know how to speak Bot language? I'll tell you: Usually, you'll be able to select from one or multiple response options that displayed at the bottom of your screen. If you do not see them there, turn them on/off by clicking on the symbol to the left of the mic,  the one that looks like a cube with the number four - it switches your input method from typing on a keyboard to selecting a preset response. If this symbol does not appear, that means that you can respond to me by typing into the 'Message.' open description box. Take a look at the screenshot and select 'I speak bot lingo now!'";
-var welcome_explanation_image = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663511367/hotbot/Recenter_Gesture_cnpbtf.jpg";
+var welcome_explanation_image = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663657288/hotbot/Screenshot_2022-09-20_090045_psnplc.png";
 
 
 var welcome_message2 =  " Perfect! You and I are gonna get along just great! Before we start producing pleasure together, there's a couple of things I wanna talk to you about. 🤓";
@@ -321,7 +321,7 @@ bot.onText(/\/start/, (msg) => {
           };
 
 
-          bot.sendPhoto(msg.chat.id, bot_selfie, opts);
+          bot.sendPhoto(msg.chat.id, welcome_explanation_image, opts);
 
       }).catch();
 
