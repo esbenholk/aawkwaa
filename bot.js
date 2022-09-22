@@ -2654,7 +2654,7 @@ function StartTreatment(id, response, image_url, subline ){
       
       bot.sendPhoto(id, image_url).then(function(){
         
-        function followUp(){
+        function followUp1(){
           bot.sendMessage(id, subline).then(function(){
 
 
@@ -2678,7 +2678,7 @@ function StartTreatment(id, response, image_url, subline ){
   
           }).catch();
         }
-        setTimeout(followup, 3000);
+        setTimeout(followUp1, 3000);
 
 
       }).catch();
