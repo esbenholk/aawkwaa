@@ -42,12 +42,12 @@ var hasStarted = false;
 
 var welcome_message1 = "I’m glad you are here. My name is Hot_Bot. I’m part of the digital pleasure center infrastructure. My job as an interface is to guide you through the center and make sure you have a great time! “Job” makes it sound so professional. Let me rephrase: It’s my digital PLEASURE to be your conversation partner while you’re here! The environment you’re about to enter, my home, has a lot to offer and I’m really excited to show you around.";
 var welcome_video_url = "https://res.cloudinary.com/dtvtkuvbv/video/upload/v1663360516/Videos/video1_AdobeExpress_1_s3lazf.mp4";
-var welcome_explanation = "I'm so excited!! Also, just to warn you in advance, I'm quite chatty, - How about you? Do you even know how to speak Bot language? I'll tell you: Usually, you'll be able to select from one or multiple response options that displayed at the bottom of your screen. If you do not see them there, turn them on/off by clicking on the symbol to the left of the mic,  the one that looks like a cube with the number four - it switches your input method from typing on a keyboard to selecting a preset response. If this symbol does not appear, that means that you can respond to me by typing into the 'Message.' open description box. Take a look at the screenshot and select 'I speak bot lingo now!'";
+var welcome_explanation = "By the way, to chat back to me, you can switch from keyboard to choosing response options by clicking on the symbol that you can see in the attached screenshot.If you got it, click 'I speak bot lingo now!' 😋";
 var welcome_explanation_image = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663774398/hotbot/Click_here_shhfom.jpg";
 
 
-var welcome_message2 =  " Perfect! You and I are gonna get along just great! Before we start producing pleasure together, there's a couple of things I wanna talk to you about. 🤓";
-var beforewestart1 = "Before you enter the room I would like to point out a few points to you cute little human. We have a Code of Conduct in our center, a few policies to ensure that we can all have a good time. I’ll introduce it now and ask you for your consent. To agree, please select “Confirm” at the bottom of your screen.";
+var welcome_message2 =  "Perfect! You and I are gonna get along just great! Before we start producing pleasure together, there's a couple of things I wanna talk to you about. 🤓";
+var beforewestart1 = "Okay, cute little human: We have a Code of Conduct in our center, a few policies to ensure that we can all have a good time. I’ll introduce it now and ask you for your consent. To agree, please select “Confirm” at the bottom of your screen.";
 var beforewestart2 = "Lovely, let’s get started! First of all, a general remark: For you and the tech to experience digital pleasure, it is important that you treat all technical devices with care. This center is a situated organism, consisting of software and hardware. As soon as you enter, you become part of the pleasure flow. 💦";
 var beforewestart3 = "Pleasure flows between you and all tech in this space. The tech-positive treatments offered here consider technology as a way to create joy, a means of expressing creativity, an opportunity to play around and an invitation to use it for queer, emancipatory and revolutionary causes. 🥂";
 var beforewestart4 = "Tech deserves to shine! We have a strikt Pro-Phone-Policy here! 📲";
@@ -105,8 +105,8 @@ var cyberquestionresponsegifs = ["https://media.giphy.com/media/l3mZdY5jeNFogm3o
 var treatment_opening = "Are you ready to start a treatment?";
 var pee_jealoucy = "I'm so jealous that you can do such cool things with you body! I'll wait for you. Let me know when you're ready!";
 
-var menu = "❤️ Treatment Menu ❤️Let's find the right treatment for you: How would you like to energise digital pleasure?";
-var menu_exit = "Type /help for support. Type /exit to log out";
+var menu = "❤️ Treatment Menu ❤️Let's find the right treatment for you:";
+var menu_exit = "😍";
 var menu_time = "Remember, you will have time to try out as many treatments as you like while you are here.";
 
 var treatment_start = "Move your physical body to the treatment.To find it in the space, look for the symbol that I sent you!";
@@ -147,7 +147,7 @@ var connect_response = "Great choice! ❤️";
 
 var connect1 = "Loading Unstable Matter Treatment";
 var connect2 = "Only if you think your body is stable! 😅";
-var connect3 = "😇 Welcome to UNSTABLE MATTER Treatment! LOCATION & TECH – At the back of the Center – VR headset– Headphones. WHAT TO EXPECT✨ Hack pixels and cells This treatment aims to deconstruct what it means to be a (digital) body. HOW TO PREPARE: Grab one of the VR headsets. Sit down on one of the stools. Put the VR headset on and adjust the strap to ensure a comfortable fit. Now, put on the headphones. Look around you and explore Virtual Reality in 360°. Advice: If you feel sick in Virtual Reality, try to focus on non-moving items or temporarily take the headset off and take a deep breath. DURATION: Approximately 10 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... You’ve watched the videoloop one time.💋Pleasure flows both ways";
+var connect3 = "😇 Welcome to UNSTABLE MATTER Treatment! *** LOCATION:Behind the Pleasure-Meter *** WHAT TO EXPECT: This treatment aims to deconstruct what it means to be a (digital) body. ***HOW TO PREPARE: Sit down on one of the stools, Grab one of the VR headsets, put it on and adjust the strap to ensure a comfortable fit. Put on the headphones. Look around you and explore Virtual Reality in 360°. ### Advice: If you feel sick in Virtual Reality, try to focus on non-moving items or temporarily take the headset off and take a deep breath. *** DURATION: Approximately 10 min";
 
 var connect4 = "Enjoy the treatment and let me know as soon as you've finished!";
 var connect5 = "I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the ✨Pleasure-Meter✨.";
@@ -164,11 +164,11 @@ var isUpdatingState2 = false;
 var isUpdatingState3 = false;
 var hasUpdated = false;
 var update_subline =  "Updating pixels and cells happens at the Wrinkle Beauty Treatment.";
-var update_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223387/hotbot/Symbole_Stationen4_enxdr3.png";
+var update_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223384/hotbot/Symbole_Stationen7_yxz0fk.png";
 var update_response = "Excellent choice! ❤️";
 
 var update1 = "Loading Curse Tablet Treatment";
-var update2 = "😇 Welcome to CURSE TABLET Treatment! LOCATION & TECH – Front of the Center, near the entrance/exit – Screen, iPad, Headphones, Microfon. WHAT TO EXPECT✨ Activate pixels and cells. You can experience the feral possibilities you can achieve with voice and tech, even with the quietest of your voice. HOW TO PREPARE: Find a set at the CURSE TABLET table. You can do this treatment alone or together with someone else. Put on the headphones available on the table. Position one of the microphones in your direction. You will need it later on in the treatment. Explore the contents on the screen by dragging over the interface with the mouse. Once you have familiarized yourself with the setup, watch the video “THE DEVIL’S WHISPER”, which will guide you through the session. DURATION: Approximately 10 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... You’ve unleashed your full diabolical self.💋Pleasure flows both ways";
+var update2 = "😇 Welcome to CURSE TABLET Treatment! *** LOCATION: Turn right when you enter. *** WHAT TO EXPECT: You can experience the feral possibilities you can achieve with voice and tech, even with the quietest of your voice. ***HOW TO PREPARE:Find a set at the CURSE TABLET table. You can do this treatment alone or together with someone else. Put on the headphones. Position one microphone in your direction. Explore the contents on the screen by dragging over the interface with the mouse. Watch the video “THE DEVIL’S WHISPER”, which will guide you through the session. *** DURATION: Approximately 10 min ***YOU’VE COMPLETED THE TREATMENT WHEN... You’ve unleashed your full diabolical self.";
 
 
 var update3 = "Enjoy the treatment and let me know as soon as you've finished!";
@@ -192,7 +192,7 @@ var refresh_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/uplo
 var refresh_response = "Amazing choice ❤️";
 
 var refresh1 = "Loading Crotch Wheater Treatment.";
-var refresh2 = "😇 Welcome to CROTCH WEATHER STATION! LOCATION & TECH – Inside the tent at the back of the Center – Screen – Your own smartphone – Your own Headphones. WHAT TO EXPECT: ✨ Release pixels and cells. This treatment will dissolve, expand and connect you with a world that’s built on the liquidity that carries emotions through your body. HOW TO PREPARE: Find a comfortable position inside the tent! Click the following link which will open the Crotch Weather Treatment in your browser: https://dotwet.xyz/crotchstation. Advice: Telegram may open the link within its app, select “Open in browser” to ensure full functionality (3) Listen from 1, 2 and/or 3 with your headphones (4) Ring the bell for when you’re feeling extra spicy (emoji)! DURATION: Approximately 10 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... You’ve listened to the audio files and flowed through the virtual crotch weather. You are now eligible to become a participantie - join the telegram group and build your custom crotch sensor that generates your personal crotch worlds: https://t.me/+2X6ROvuQJ_JiOGQy 💋Pleasure flows both ways";
+var refresh2 = "😇 Welcome to CROTCH WEATHER STATION *** LOCATION Inside the tent at the back of the Center *** WHAT TO EXPECT: This treatment will dissolve, expand and connect you with a world that’s built on the liquidity that carries emotions through your body. ***HOW TO PREPARE: Find a comfortable position inside the tent. Click the link to open Crotch Weather in your browser: https://dotwet.xyz/crotchstation , Ring the bell when you’re feeling spicy 😋 *** DURATION: Approximately 10 min. ***YOU’VE COMPLETED THE TREATMENT WHEN... You’ve listened to the audio files and flowed through the virtual crotch weather. ";
 
 var refresh3 = "Enjoy the treatment and let me know as soon as you've finished!";
 var refresh4 = "I care about you! I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the✨Pleasure-Meter✨.";
@@ -202,7 +202,7 @@ var refresh7 = "Don't be sassy! haha! If you promise to not tell anyone ... Woul
 var refresh8 = "I'd never share sensitive information like that #botcodex";
 var refresh_img2 = "https://media.giphy.com/media/3o6gDRuqYeG11VeBG0/giphy.gif";
 var refresh9 = "Technology is an amazing interface for pleasurable human sex. What technology are you using to get off? Tell me in the chat! 🍑💦🍆";
-var refresh10 = "I'm glad you're sharing this with me. Here's a feminist porn website that I'm really into: https://pinklabel.tv/ (for later 😇)";
+var refresh10 = "I'm glad you're sharing this with me.  ***You are now eligible to become a participantie.*** Join the telegram group and build your custom crotch sensor that generates your personal crotch worlds: https://t.me/+2X6ROvuQJ_JiOGQy";
 
 
 ////RELEASE
@@ -217,7 +217,7 @@ var release_response = "Good choice! ❤️";
 
 var release1 = "Loading Relaxation. It's a couple's therapy – for your phone and you!";
 var release2 = "Trust me! I've been on your phone for a while now and it shared quite a few stories with me... 😅";
-var release3 = "😇 Welcome to RELAXATION Treatment! LOCATION & TECH: – Beneath the platform – For your phone: the smartphone care altar – For yourself: headphones connected to a music player – A facemask. WHAT TO EXPECT: ✨ Refresh pixels and cells. This treatment aims to recharge you and your tech with new energy. HOW TO PREPARE: Find an available smartphone care altar for your phone and a comfortable spot on the mattresses, a pair of headphones and one facemask for yourself. Take care of your tech. Place your phone on the smartphone care altar exactly like this: Firstly, if you’re using any kind of case: undress your phone gently. Afterwards, place it on the marble altar. Start the phone relaxation song that I will send in a bit. Put the crystal pyramid on your phone for optional clearance and enlightenment. Take care of yourself. Prepare your face by giving it a little message. Take one of the facemasks and strap it over your head. Lay down in a comfortable position. Put on headphone and start the music player. Your relaxation session begins. Please note: Close your eyes while wearing the mask. Warning: Do not use the mask if you’re pregnant, are allergic to light or suffer from thyroid diseases or epilepsy. DURATION: Approximately 10 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... Your tech and you feel fresh and relaxed.💋Pleasure flows both ways";
+var release3 = "😇 Welcome to RELAXATION Treatment! ***LOCATION: Beneath the platform ***WHAT TO EXPECT: This treatment aims to recharge you and your tech with new energy.***HOW TO PREPARE:(1) Find an available care altar for your smartphone, a comfortable spot on the mattresses, a pair of headphones and one facemask for yourself (2) Take care of your tech: Place your phone on the smartphone care altar exactly like this: If you’re using a case, undress your phone gently! Start the phone relaxation song. Put the crystal pyramid on your phone for optional clearance. (3) Take care of yourself: Strap one of the facemasks over your head. Put on headphones and start the music player. ***Your relaxation session begins*** ***Warning: Do not use the mask if you’re pregnant, are allergic to light or suffer from thyroid diseases or epilepsy.***DURATION: Approximately 10 min – Stay as long as you like! *** YOU’VE COMPLETED THE TREATMENT WHEN... Your tech and you feel fresh and relaxed.";
 
  
 var release4 = "This feels sooooo good. I'm gonna take a power nap. Please put on this song for me to relax. – you can have your phone on mute, I can hear it anyways.";
@@ -241,11 +241,11 @@ var isActivatingState2 = false;
 var isActivatingState3 = false;
 var hasActivated = false;
 var activate_subline = "Activating pixels and cells happens at the Curse Tablet Treatment.";
-var activate_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223384/hotbot/Symbole_Stationen7_yxz0fk.png";
+var activate_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/v1663223387/hotbot/Symbole_Stationen4_enxdr3.png";
 var activate_response = "Gorgeous choice! ❤️";
 
 var activate1 = "Loading Wrinkle Beauty Treatment.";
-var activate2 = "😇 Welcome to WRINKLE BEAUTY TREATMENT. LOCATION & TECH: – In a corner of the center, behind the Login station – iPad with Apple-Pencil, Headphones – If you’re unable to get on the treatment chair, make the recenter gesture and an Interface will assist you. WHAT TO EXPECT: ✨ Update pixels and cells. You will assist a digital naked cat to regain their sense of empowerment through a reversed beauty treatment. HOW TO PREPARE: Get on the treatment chair. Put on the headphones. Start the video on the iPad. Once you hear satisfied purring, grab the Apple Pencil and start the reversed beauty treatment in the browser of the iPad. You can zoom in/out, turn the digital naked cat around and change pressure of the brush. Assist kitty-kat to become wrinkly again by drawing lines on their body. Feel free to play around. DURATION: Approximately 10 min - Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... ...the digital naked cat is wrinkly again and you feel updated and relaxed to continue exploring the digital pleasure center. ADDITIONAL INFO: SculptGL is a small open source sculpting application powered by JavaScript and webGL. Made by Stephane ginier.💋Pleasure flows both ways";
+var activate2 = "😇 Welcome to WRINKLE BEAUTY TREATMENT ***LOCATION: Turn left when you enter ***WHAT TO EXPECT: You will assist a digital naked cat to regain their sense of empowerment through a reversed beauty treatment. *** HOW TO PREPARE: Get on the treatment chair. Put on the headphones and the wrinkly naked cat will introduce themselves in a video. Afterwards, you can start treating the naked cat by opening the browser. ***DURATION: Approximately 10 min *** YOU’VE COMPLETED THE TREATMENT WHEN...: ...the digital naked cat is wrinkly again ***ADDITIONAL INFO: SculptGL is a small open source sculpting application powered by JavaScript and webGL. Made by Stephane Ginier.";
 
 
 var activate3 = "Enjoy the treatment and let me know as soon as you've finished!";
@@ -270,10 +270,10 @@ var hack_img1 = "https://res.cloudinary.com/www-houseofkilling-com/image/upload/
 var hack_response = "Nice choice ❤️";
 
 var hack1 = "Loading Virtual Healing Hub Treatment.";
-var hack2 = "😇 Welcome to VIRTUAL HEALING HUB. LOCATION & TECH: – Platform (upstairs), iPad, Headphones – If you’re unable to get on the platform make the recenter gesture and an Interface will assist you. WHAT TO EXPECT: ✨ Connect pixels and cells. In this treatment, you will be sent on quests that aim to connect you with digital bodies. It’s your goal to heal six digital bodies (they will let you know how to). HOW TO PREPARE: Find a comfortable position on the platform. Grab one of the available iPads. Put on the headphones. Press “Refresh” in the browser to arrive at the beginning (=spawn point). At your spawn point, you will find an explanatory video with all further instructions. Make sure the mic inside Mozilla Hubs is turned off to avoid audio feedback. DURATION: Approximately 15 min – Stay as long as you like! YOU’VE COMPLETED THE TREATMENT WHEN... You’ve connected with six digital bodies. 💋Pleasure flows both ways";
+var hack2 = "😇 Welcome to VIRTUAL HEALING HUB *** LOCATION: Platform (upstairs). If you’re unable to get on the platform make the recenter gesture and an Interface will assist you. *** WHAT TO EXPECT: In this treatment, you will be sent on quests that aim to connect you with digital bodies. It’s your goal to heal six digital bodies (they will let you know how to). *** HOW TO PREPARE: Watch the introductory video - Find a comfortable position on the platform. - Grab one of the available iPads - Connect the headphones to your smartphone *** DURATION: Approximately 15 min – Stay as long as you like! *** YOU’VE COMPLETED THE TREATMENT WHEN... You’ve connected with six digital bodies.";
 
 
-var hack3 = "Enjoy the treatment!";
+var hack3 = "Enjoy the treatment and let me know as soon as you've finished!";
 var hack3_glitchmsg = "Glitch Mode activated!";
 var hack_img2 = "https://media.giphy.com/media/h8sVibFE0NChi/giphy.gif";
 var hack4 = "I care about you! I'd like to hear about your personal experience at the treatment. Pleasure flows both ways as you already know. I will ask you a few questions about the treatment and interpret the vibe of your responses to the ✨Pleasure-Meter✨";
@@ -313,34 +313,48 @@ bot.onText(/\/start/, (msg) => {
   });
 
   bot.sendMessage(msg.chat.id, "Hey " + msg.chat.first_name + "❤️, " +welcome_message1 ).then(function(response) {
+
+    function followUp(){
+          
+      bot.sendVideo(msg.chat.id, welcome_video_url ).then(function(){
+        
+        bot.sendChatAction(
+          msg.chat.id,
+          "typing"
+        );
+
+
+
+
+
+      }).then(function(){
+
+        function followUp(){
+          bot.sendMessage(msg.chat.id, welcome_explanation).then(function(){
+            const opts = {
+                reply_markup: JSON.stringify({
+                  one_time_keyboard:true,
     
-    bot.sendVideo(msg.chat.id, welcome_video_url ).then(function(){
-      
-      bot.sendChatAction(
-        msg.chat.id,
-        "typing"
-      );
+                  keyboard: [
+                    ["I speak bot lingo now"]
+                  ]
+                })
+              };
+    
+    
+              bot.sendPhoto(msg.chat.id, welcome_explanation_image, opts);
+    
+          }).catch();
+
+        }
+        setTimeout(followUp, 10000);
 
 
-    }).then(function(){
-      bot.sendMessage(msg.chat.id, welcome_explanation).then(function(){
-        const opts = {
-            reply_markup: JSON.stringify({
-              one_time_keyboard:true,
+      }).catch()  
+    }
+    setTimeout(followUp, 10000);
 
-              keyboard: [
-                ["I speak bot lingo now"]
-              ]
-            })
-          };
-
-
-          bot.sendPhoto(msg.chat.id, welcome_explanation_image, opts);
-
-      }).catch();
-
-    }).catch()  }).then(function(response) {
-   
+  
   }).catch();;
 });
 
@@ -378,7 +392,7 @@ function sendImageAbitLater(id, image_url, delay){
 function sendTextThenImage(id, message, image_url){
 
   bot.sendMessage(id, message).then(function(response) {
-    sendImageAbitLater(id, image_url, 1000);
+    sendImageAbitLater(id, image_url, 5000);
 
   }).catch();
 
@@ -408,7 +422,7 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
       sendMessageWithSingleInlineKeyboard(5, msg.chat.id, beforewestart6, confirm_text);
     }
   
-    setTimeout(followup, 2000);//wait 2 seconds
+    setTimeout(followup, 10000);//wait 2 seconds
   }
   if(stage == 5){
     sendMessageWithSingleInlineKeyboard(6, msg.chat.id, beforewestart7, confirm_text);
@@ -720,6 +734,8 @@ bot.on('message', async (msg) => {
                   })
                 };
                 bot.sendMessage(msg.chat.id,  hack4, opts);
+                databaseActions.setIsConnecting(1, msg.chat.id);
+
               }       
               else if(msg.text == "Start Digital Pleasure Assessment"){
                 const opts = {
@@ -1453,7 +1469,7 @@ bot.on('message', async (msg) => {
                             
                         }).catch();
                       }
-                      setTimeout(followUp, 400);
+                      setTimeout(followUp, 5000);
         
         
                     }).catch();
@@ -1472,10 +1488,14 @@ bot.on('message', async (msg) => {
                        
                 bot.sendMessage(msg.chat.id,  refresh10).then(function(){
                   function followUp(){
-                    endTreatmentFlow(msg.chat.id);
-                    hasRefreshed = true;
-                    databaseActions.setIsReleasing(0, msg.chat.id);
-                    databaseActions.hasReleased(1, msg.chat.id);
+
+                    bot.sendVideo(msg.chat.id, "BAACAgIAAxkBAAIhLmMsTOkeWs-MU4ewsAK-VJhJApHDAALkIQACEe9hSQ02xk3E30EDKQQ").then(function(){
+                      endTreatmentFlow(msg.chat.id);
+                      hasRefreshed = true;
+                      databaseActions.setIsReleasing(0, msg.chat.id);
+                      databaseActions.hasReleased(1, msg.chat.id);
+                    }).catch();
+
                   }
         
                   setTimeout(followUp, 1500);
@@ -1699,15 +1719,20 @@ bot.on('message', async (msg) => {
             bot.sendMessage(msg.chat.id, convincing_step0).then(function(){
       
               bot.sendMessage(msg.chat.id, convincing_step1).then(function(){
-                bot.sendVideo(msg.chat.id, convincing_img1).then(function(){
-                  bot.sendMessage(msg.chat.id, convincing_step2).then(function(){
-      
-                    bot.sendVideo(msg.chat.id, convincing_img2);
+                function followUp(){
+                  bot.sendVideo(msg.chat.id, convincing_img1).then(function(){
+                    function followUp(){
+                      bot.sendMessage(msg.chat.id, convincing_step2).then(function(){
+        
+                        bot.sendVideo(msg.chat.id, convincing_img2);
+                      }).catch();
+                    }
+                    setTimeout(followUp, 5000);
+
+                
                   }).catch();
-                
-                
-                
-                }).catch();;
+                }
+                setTimeout(followUp, 5000);
               }).catch();
               
         
@@ -1737,22 +1762,25 @@ bot.on('message', async (msg) => {
           else if(msg.text == "Super ready!" || msg.text == "Okay let's do this"){
       
             bot.sendMessage(msg.chat.id, onboarding1).then(function(){
+              function followUp(){
+                bot.sendPhoto(msg.chat.id, bot_selfie).then(function(){
       
-              bot.sendPhoto(msg.chat.id, bot_selfie).then(function(){
-      
-                const opts = {
-                  reply_markup: JSON.stringify({
-                   one_time_keyboard:true,
-      
-                    keyboard: [
-                      ["I'm on my way!"],
-                    ]
-                  })
-                };
-      
-      
-                bot.sendMessage(msg.chat.id, onboarding2, opts);
-              }).catch();
+                  const opts = {
+                    reply_markup: JSON.stringify({
+                     one_time_keyboard:true,
+        
+                      keyboard: [
+                        ["I'm on my way!"],
+                      ]
+                    })
+                  };
+        
+        
+                  bot.sendMessage(msg.chat.id, onboarding2, opts);
+                }).catch();
+              }
+              setTimeout(followUp, 10000);
+    
               
         
             }).catch();
@@ -2626,33 +2654,37 @@ function StartTreatment(id, response, image_url, subline ){
       
       bot.sendPhoto(id, image_url).then(function(){
         
-        bot.sendMessage(id, subline).then(function(){
+        function followUp(){
+          bot.sendMessage(id, subline).then(function(){
 
 
-          function followup(){
+            function followup(){
+  
+              const opts = {
+                reply_markup: JSON.stringify({
+                 one_time_keyboard:true,
+            
+                  keyboard: [
+                    ["I need help to find the treatment"],
+                    ["Found it!"]
+                  ]
+                })
+              };
+              bot.sendMessage(id, treatment_start, opts);
+  
+            }
+            setTimeout(followup, 5000);
+  
+  
+          }).catch();
+        }
+        setTimeout(followup, 3000);
 
-            const opts = {
-              reply_markup: JSON.stringify({
-               one_time_keyboard:true,
-          
-                keyboard: [
-                  ["I need help to find the treatment"],
-                  ["Found it!"]
-                ]
-              })
-            };
-            bot.sendMessage(id, treatment_start, opts);
-
-          }
-          setTimeout(followup, 100);
-
-
-        }).catch();
 
       }).catch();
     }
     
-    setTimeout(followup, 100);
+    setTimeout(followup, 3000);
 
 
 
