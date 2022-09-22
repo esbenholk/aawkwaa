@@ -378,7 +378,7 @@ function sendImageAbitLater(id, image_url, delay){
 function sendTextThenImage(id, message, image_url){
 
   bot.sendMessage(id, message).then(function(response) {
-    sendImageAbitLater(id, image_url, 100);
+    sendImageAbitLater(id, image_url, 1000);
 
   }).catch();
 
@@ -1171,12 +1171,12 @@ bot.on('message', async (msg) => {
                         databaseActions.setIsActivating(0, msg.chat.id);
                         databaseActions.hasActivated(1, msg.chat.id);
                       }
-                      setTimeout(followUp, 1000);
+                      setTimeout(followUp, 2000);
         
                     }).catch();
                   }
         
-                  setTimeout(followUp, 1000);
+                  setTimeout(followUp, 2000);
         
         
                 }).catch();
@@ -2712,7 +2712,7 @@ bot.onText(/\/help/, (msg) => {
     "typing"
   )
 
-  databaseActions.getUser(id).then(result => {
+  databaseActions.getUser(msg.chat.id).then(result => {
     if(result.rowCount > 0 && result.rows[0].isintreatment > 0){
       databaseActions.isHelping(1, msg.chat.id);
 
