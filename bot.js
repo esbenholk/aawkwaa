@@ -441,48 +441,57 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 
   ////menu selection
   if(stage == 101){ ///CONNECT
-    ExitAllTreatments(msg.chat.id);
-    StartTreatment(msg.chat.id, connect_response, connect_img1, connect_subline);
+    ExitAllOtherTreatments(msg.chat.id, "connection");
     isConnecting = true;
     databaseActions.setIsConnecting(1, msg.chat.id);
+    StartTreatment(msg.chat.id, connect_response, connect_img1, connect_subline);
+  
 
   }
   if(stage == 106){ ///HACK
-    ExitAllTreatments(msg.chat.id);
+    ExitAllOtherTreatments(msg.chat.id, "hacking");
     isHacking = true;
-    StartTreatment(msg.chat.id, hack_response, hack_img1, hack_subline); 
     databaseActions.setIsHacking(1, msg.chat.id);
+    StartTreatment(msg.chat.id, hack_response, hack_img1, hack_subline); 
+   
 
   }
   if(stage == 102){ //UPDATE
-    ExitAllTreatments(msg.chat.id);
+    ExitAllOtherTreatments(msg.chat.id, "updating");
+    databaseActions.setIsUpdating(1, msg.chat.id);
     StartTreatment(msg.chat.id, update_response, update_img1, update_subline);
     isUpdating = true;
-    databaseActions.setIsUpdating(1, msg.chat.id);
 
   }
   if(stage == 105){ //ACTIVATE
-    ExitAllTreatments(msg.chat.id);
+    ExitAllOtherTreatments(msg.chat.id, "activation");
+    databaseActions.setIsActivating(1, msg.chat.id);
+
     StartTreatment(msg.chat.id, activate_response, activate_img1, activate_subline);
     isActivating= true;
-    databaseActions.setIsActivating(1, msg.chat.id);
 
   }
   if(stage == 103){ //RELEASE
-    ExitAllTreatments(msg.chat.id);
+    ExitAllOtherTreatments(msg.chat.id, "releasing");
+
+    databaseActions.setIsReleasing(1, msg.chat.id);
+
     StartTreatment(msg.chat.id, release_response, release_img1, release_subline);
     isReleasing = true;
-    databaseActions.setIsReleasing(1, msg.chat.id);
 
   }
   if(stage == 104){  //REFRESH
-    ExitAllTreatments(msg.chat.id);
+    ExitAllOtherTreatments(msg.chat.id, "refreshing");
+
+    databaseActions.setIsRefreshing(1, msg.chat.id);
+
     StartTreatment(msg.chat.id, refresh_response, refresh_img1, refresh_subline);
     isRefreshing= true;
-    databaseActions.setIsRefreshing(1, msg.chat.id);
   }
   if(stage == 107){ //REFFLECT
     isReflecting = true;
+    ExitAllOtherTreatments(msg.chat.id, "reflecting");
+
     databaseActions.setIsReflecting(1, msg.chat.id);
 
     bot.sendMessage(msg.chat.id, reflect_response).then(function(){
@@ -622,7 +631,16 @@ bot.on('message', async (msg) => {
         
             
             else if(msg.text == "I have looked at them"){
-              bot.sendMessage(msg.chat.id,  reflect4);
+              const opts = {
+                reply_markup: JSON.stringify({
+                one_time_keyboard:true,
+            
+                  keyboard: [
+                    ["write your own reply in the textbox"]
+                  ]
+                })
+              };
+              bot.sendMessage(msg.chat.id,  reflect4, opts);
               isReflectingState1 = true;
               databaseActions.setIsReflecting(2, msg.chat.id);
             }
@@ -984,7 +1002,7 @@ bot.on('message', async (msg) => {
                 };
                 bot.sendMessage(msg.chat.id,  connect8, opts);
                 isHackingState1 = false;
-                databaseActions.setIsHacking(2, msg.chat.id);
+                databaseActions.setIsHacking(1, msg.chat.id);
 
               }
         
@@ -1241,7 +1259,7 @@ bot.on('message', async (msg) => {
                 bot.sendMessage(msg.chat.id,  activate4, opts);
               }
         
-              else if(msg.text == "Start Digital Pleasure Assessment"  ||  isActivating && msg.text == "skip"){
+              else if(msg.text == "Start Digital Pleasure Assessment"  || msg.text == "skip"){
                 isUpdatingState1 = true;
                 databaseActions.setIsUpdating(2, msg.chat.id);
                 bot.sendMessage(msg.chat.id,  activate5);
@@ -2305,7 +2323,10 @@ bot.on('message', async (msg) => {
             }).catch();
           }
       
-          else if(result.rows[0].ishelping> 0 && msg.text == "This was helpful"){
+          else if(result.rows[0].ishelping > 0 && msg.text == "This was helpful"){
+
+            databaseActions.isHelping(0, msg.chat.id);
+
             bot.sendMessage(msg.chat.id,  "Great! 👍").then(function(){
               function followUp(){
       
@@ -2642,15 +2663,6 @@ function StartTreatment(id, response, image_url, subline ){
 
 
 function ExitAllTreatments(id){
-  isActivating = false;
-  isConnecting = false;
-  isHacking = false;
-  isReflecting = false;
-  isRefreshing = false;
-  isReleasing = false;
-  isUpdating = false;
-
-
   databaseActions.setIsActivating(0, id );
   databaseActions.setIsConnecting(0, id );
   databaseActions.setIsHacking(0, id );
@@ -2658,6 +2670,33 @@ function ExitAllTreatments(id){
   databaseActions.setIsRefreshing(0, id );
   databaseActions.setIsReleasing(0, id );
   databaseActions.setIsUpdating(0, id );
+}
+
+function ExitAllOtherTreatments(id, treatmentname){
+
+  if(treatmentname != "activation"){
+    databaseActions.setIsActivating(0, id );
+  }
+  if(treatmentname != "connection"){
+    databaseActions.setIsConnecting(0, id );
+  }
+  if(treatmentname != "hacking"){
+    databaseActions.setIsHacking(0, id );
+  }
+  if(treatmentname != "reflecting"){
+    databaseActions.setIsReflecting(0, id );
+  }
+  if(treatmentname != "refreshing"){
+    databaseActions.setIsRefreshing(0, id );
+  }
+  if(treatmentname != "releasing"){
+    databaseActions.setIsReleasing(0, id );
+  }
+  if(treatmentname != "updating"){
+    databaseActions.setIsUpdating(0, id );
+  }
+
+  
 }
 
 function endHelpSession(id){
@@ -2672,7 +2711,7 @@ function endHelpSession(id){
   };
 
   bot.sendMessage(id,"Was this helpful?", opts);
-  databaseActions.isHelping(0, id);
+  
 
 }
 
@@ -2714,6 +2753,7 @@ bot.onText(/\/help/, (msg) => {
 
   databaseActions.getUser(msg.chat.id).then(result => {
     if(result.rowCount > 0 && result.rows[0].isintreatment > 0){
+      
       databaseActions.isHelping(1, msg.chat.id);
 
       const opts = {
