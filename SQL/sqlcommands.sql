@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS userdata;
 
 CREATE TABLE userdata(
 
-    id SERIAL primary key,
+    id BIGINT primary key,
     username VARCHAR,
     isInTreatment VARCHAR,
     isConnecting VARCHAR,

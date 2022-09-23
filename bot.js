@@ -607,34 +607,20 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 });
 
 bot.on('message', async (msg) => {
-    // console.log(msg);
+    console.log(msg);
 
-    // if(msg.text && msg.text.charAt(0) == "/" ){
-    //   return;
-    // }
-    // if(msg.chat.id ){
-    //   return;
-    // }
-    let tempID = 0;
-    if(msg.chat.id){
-      tempID = msg.chat.id;
+    if(msg.text && msg.text.charAt(0) == "/" || !msg.text ){
+      return;
     }
 
-    databaseActions.getUser(msg.chat.id).then(result => {
-      if(result.rowCount == 0){
-        // const opts = {
-        //   reply_markup: JSON.stringify({
-        //     one_time_keyboard:true,
-  
-        //     keyboard: [
-        //       ["/start"]
-        //     ]
-        //   })
-        // };
-  
-  
-        // bot.sendMessage(msg.chat.id, "Will you start me first?", opts);
-      } else {
+    let tempID = 0;
+
+    if(msg.chat.id){
+      tempID = msg.chat.id
+    }
+
+    databaseActions.getUser(tempID).then(result => {
+      if(result.rowCount > 0) {
 
           console.log(result);
 
