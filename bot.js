@@ -607,11 +607,11 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 });
 
 bot.on('message', async (msg) => {
-    console.log(msg);
+    // console.log(msg);
 
-    if(msg.text && msg.text.charAt(0) == "/" ){
-      return;
-    }
+    // if(msg.text && msg.text.charAt(0) == "/" ){
+    //   return;
+    // }
 
     databaseActions.getUser(msg.chat.id).then(result => {
       if(result.rowCount == 0){
