@@ -613,13 +613,13 @@ bot.on('message', async (msg) => {
       return;
     }
 
-    let tempID = 0;
+    // let tempID = 0;
 
-    if(msg.chat.id){
-      tempID = msg.chat.id
-    }
+    // if(msg.chat.id){
+    //   tempID = msg.chat.id
+    // }
 
-    databaseActions.getUser(tempID).then(result => {
+    databaseActions.getUser(msg.chat.id).then(result => {
       if(result.rowCount > 0) {
 
           console.log(result);
