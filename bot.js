@@ -300,12 +300,17 @@ var hack12_body = "Hahaha you're right. We're all cyborgs!";
 /////START
 bot.onText(/\/start/, (msg) => {
 
-  
+  var name = "unknown";
+  if(msg.chat.first_name != null && msg.chat.first_name.length > 0){
+    name = msg.chat.first_name;
+  } 
   databaseActions.getUser(msg.chat.id).then(result => {
-    if(!result.rowCount > 0){
-      databaseActions.createUser(msg.chat.id, msg.chat.first_name).then(result => {
+    if(result.rowCount == 0){
+  
+      databaseActions.createUser(msg.chat.id, name).then(result => {
         ExitAllTreatments(msg.chat.id);
       });
+
     } else {
       ExitAllTreatments(msg.chat.id);
 
@@ -1779,7 +1784,7 @@ bot.on('message', async (msg) => {
                   bot.sendMessage(msg.chat.id, onboarding2, opts);
                 }).catch();
               }
-              setTimeout(followUp, 10000);
+              setTimeout(followUp, 5000);
     
               
         
