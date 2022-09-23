@@ -614,7 +614,7 @@ bot.on('message', async (msg) => {
     }
 
     databaseActions.getUser(msg.chat.id).then(result => {
-      if(!result.rowCount > 0){
+      if(result.rowCount == 0){
         // const opts = {
         //   reply_markup: JSON.stringify({
         //     one_time_keyboard:true,
