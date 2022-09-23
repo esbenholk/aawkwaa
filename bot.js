@@ -293,7 +293,11 @@ var hack12_body = "Hahaha you're right. We're all cyborgs!";
 
 
 
-
+const noKeyboard = {
+  reply_markup: {
+    remove_keyboard: true
+  }
+};
 
 
 
@@ -317,17 +321,9 @@ bot.onText(/\/start/, (msg) => {
     }
   });
 
-  const opts = {
-    reply_markup: JSON.stringify({
-      one_time_keyboard:true,
 
-      keyboard: [
-        ["<3"]
-      ]
-    })
-  };
 
-  bot.sendMessage(msg.chat.id, "Hey " + msg.chat.first_name + "❤️, " +welcome_message1, opts ).then(function(response) {
+  bot.sendMessage(msg.chat.id, "Hey " + msg.chat.first_name + "❤️, " +welcome_message1, noKeyboard ).then(function(response) {
 
     function followUp(){
           
@@ -613,6 +609,10 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 bot.on('message', async (msg) => {
     console.log(msg);
 
+    if(msg.text.charAt(0) == "/" ){
+      return;
+    }
+
     databaseActions.getUser(msg.chat.id).then(result => {
       if(!result.rowCount > 0){
         // const opts = {
@@ -660,16 +660,8 @@ bot.on('message', async (msg) => {
         
             
             else if(msg.text == "I have looked at them"){
-              const opts = {
-                reply_markup: JSON.stringify({
-                one_time_keyboard:true,
-            
-                  keyboard: [
-                    ["write your own reply in the textbox"]
-                  ]
-                })
-              };
-              bot.sendMessage(msg.chat.id,  reflect4, opts);
+       
+              bot.sendMessage(msg.chat.id,  reflect4, noKeyboard);
               isReflectingState1 = true;
               databaseActions.setIsReflecting(2, msg.chat.id);
             }
@@ -1015,7 +1007,7 @@ bot.on('message', async (msg) => {
               }
         
               else if(msg.text == "All bodies are fragile." || msg.text == "All bodies are imaginative."  || msg.text == "All bodies are convoluted."){
-                bot.sendMessage(msg.chat.id,  connect7);
+                bot.sendMessage(msg.chat.id,  connect7, noKeyboard);
                 isHackingState1 = true;
                 databaseActions.setIsHacking(2, msg.chat.id)
               }
@@ -1293,7 +1285,7 @@ bot.on('message', async (msg) => {
               else if(msg.text == "Start Digital Pleasure Assessment"  || msg.text == "skip"){
                 isUpdatingState1 = true;
                 databaseActions.setIsUpdating(2, msg.chat.id);
-                bot.sendMessage(msg.chat.id,  activate5);
+                bot.sendMessage(msg.chat.id,  activate5, noKeyboard);
               }
               else if(result.rows[0].isupdating >= 2 && msg.text.length > 0){
         
@@ -1475,10 +1467,12 @@ bot.on('message', async (msg) => {
                         
                 bot.sendMessage(msg.chat.id,  refresh8).then(function(){
                   function followUp(){
-                    bot.sendPhoto(msg.chat.id, refresh_img2).then(function(){
+                    bot.sendVideo(msg.chat.id, refresh_img2).then(function(){
         
                       function followUp(){
-                        bot.sendMessage(msg.chat.id, refresh9).then(function(){
+
+                        
+                        bot.sendMessage(msg.chat.id, refresh9, noKeyboard).then(function(){
                           isReleasingState1 = true;
                           databaseActions.setIsReleasing(2, msg.chat.id);
                             
@@ -1919,7 +1913,7 @@ bot.on('message', async (msg) => {
               function followup(){
                 userCanSendRandomString = true;
                 databaseActions.isAbleToSendTheirCustomResponse(1, msg.chat.id);
-                bot.sendMessage(msg.chat.id, "Text me when you're in the center!")
+                bot.sendMessage(msg.chat.id, "Text me when you're in the center!", noKeyboard)
               }
               
               setTimeout(followup, 100);//wait 2 seconds
@@ -2518,7 +2512,7 @@ bot.on('message', async (msg) => {
       
           else if(msg.text == "Take a break"){
       
-            bot.sendMessage(msg.chat.id,  go_on_break2).then(function(){
+            bot.sendMessage(msg.chat.id,  go_on_break2, noKeyboard).then(function(){
           
               isOnBreak = true;
               databaseActions.isOnBreak(1, msg.chat.id);
@@ -2600,7 +2594,7 @@ function sendMenu(id){
     
         databaseActions.setIsInTreatment(1, id);
     
-        bot.sendMessage(id,  menu_exit).then(function(){
+        bot.sendMessage(id,  menu_exit, noKeyboard).then(function(){
           bot.sendMessage(id,  menu_time);
         }).catch();
     
