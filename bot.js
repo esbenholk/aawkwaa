@@ -609,7 +609,7 @@ bot.on('callback_query', function onCallbackQuery(callbackQuery) {
 bot.on('message', async (msg) => {
     console.log(msg);
 
-    if(msg.text.charAt(0) == "/" ){
+    if(msg.text && msg.text.charAt(0) == "/" ){
       return;
     }
 
