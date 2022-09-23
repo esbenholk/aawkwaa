@@ -317,7 +317,17 @@ bot.onText(/\/start/, (msg) => {
     }
   });
 
-  bot.sendMessage(msg.chat.id, "Hey " + msg.chat.first_name + "❤️, " +welcome_message1 ).then(function(response) {
+  const opts = {
+    reply_markup: JSON.stringify({
+      one_time_keyboard:true,
+
+      keyboard: [
+        ["<3"]
+      ]
+    })
+  };
+
+  bot.sendMessage(msg.chat.id, "Hey " + msg.chat.first_name + "❤️, " +welcome_message1, opts ).then(function(response) {
 
     function followUp(){
           
@@ -357,7 +367,7 @@ bot.onText(/\/start/, (msg) => {
 
       }).catch()  
     }
-    setTimeout(followUp, 10000);
+    setTimeout(followUp, 1000);
 
   
   }).catch();;
